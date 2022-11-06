@@ -1,3 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using FirstPokerTry.Logics.CardFactory.Contexts;
+using Microsoft.EntityFrameworkCore;
 
+//to be continued...

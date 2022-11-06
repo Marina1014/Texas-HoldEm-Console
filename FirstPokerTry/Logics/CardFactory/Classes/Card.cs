@@ -9,7 +9,7 @@ namespace FirstPokerTry.Logics.CardFactory.Classes
         #region Properties
 
         public int Id { get; }
-        public int Rank { get; }
+        //public int Rank { get; } // redundant?
         private CardObject? CardObject { get; set; }
         public List<CardObject>? CardDeck { get; }
 
