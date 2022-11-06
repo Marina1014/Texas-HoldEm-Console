@@ -1,5 +1,5 @@
 ﻿using System;
-using FirstPokerTry.Logics.CardFactory.Interfaces;
+//using FirstPokerTry.Logics.CardFactory.Interfaces;
 using FirstPokerTry.Logics.CardFactory.Enumerations;
 
 namespace FirstPokerTry.Logics.Objects
@@ -9,10 +9,10 @@ namespace FirstPokerTry.Logics.Objects
 
         #region Properties
 
-        private int _id;
+        private readonly int _id;
         public SuitEnum Suit { get; }
         public ValueEnum Value { get; }
-        private int _rank { get; }
+        private readonly int _rank;
 
         #endregion
 
