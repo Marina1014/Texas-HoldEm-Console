@@ -21,6 +21,7 @@
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Data\Json\" />
     <None Remove="Data\Database\" />
+    <None Remove="Logics\Gameplay\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -30,6 +31,7 @@
     <Folder Include="Logics\CardFactory\Contexts\" />
     <Folder Include="Data\Json\" />
     <Folder Include="Data\Database\" />
+    <Folder Include="Logics\Gameplay\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
