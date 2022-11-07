@@ -6,11 +6,11 @@ using FirstPokerTry.Logics.CardFactory.Classes;
 
 namespace FirstPokerTry.Logics.CardFactory.Contexts
 {
-    public class UserContext : DbContext
+    public class PlayerContext : DbContext
     {
-        public UserContext(DbContextOptions<UserContext> options) : base(options) { }
+        public PlayerContext(DbContextOptions<PlayerContext> options) : base(options) { }
 
-        public DbSet<User> User { get; set; }
+        public DbSet<Player> Player { get; set; }
     }
 }
 
