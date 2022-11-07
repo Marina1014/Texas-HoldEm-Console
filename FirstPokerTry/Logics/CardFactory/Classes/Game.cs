@@ -7,28 +7,30 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FirstPokerTry.Logics.CardFactory.Classes
 {
-    public class Player : IPlayer
+    public class Game : IGame
     {
         #region Properties
 
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
-        private PlayerObject PlayerObject { get; set; }
+        public int Pot { get; set; }
+        public Player Winner { get; set; }
+        private GameObject GameObject { get; set; }
 
         #endregion
 
-        public Player(int id, string name)
+        public Game(int id, int pot, Player winner)
         {
             Id = id;
-            Name = name;
+            Pot = pot;
+            Winner = winner;
         }
 
         #region Methods
 
-        public void SetPlayer(PlayerObject playerObject)
+        public void SetGame(GameObject gameObject)
         {
-            PlayerObject = playerObject;
+            GameObject = gameObject;
         }
 
         #endregion

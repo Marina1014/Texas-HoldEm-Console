@@ -2,19 +2,19 @@
 
 namespace FirstPokerTry.Logics.Objects
 {
-    public class PlayerObject
+    public class GameObject
     {
         #region Properties
 
         private readonly int _id;
-        private string _name;
+        private int _pot;
 
         #endregion
 
-        public PlayerObject(int id, string name)
+        public GameObject(int id, int pot)
         {
             _id = id;
-            _name = name;
+            _pot = pot;
         }
     }
 }

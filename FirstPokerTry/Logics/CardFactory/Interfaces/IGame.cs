@@ -3,9 +3,9 @@ using FirstPokerTry.Logics.Objects;
 
 namespace FirstPokerTry.Logics.CardFactory.Interfaces
 {
-    public interface IPlayer
+    public interface IGame
     {
-        void SetPlayer(PlayerObject playerObject);
+        void SetGame(GameObject gameObject);
     }
 }
 
