@@ -9,7 +9,7 @@ namespace FirstPokerTry.Data
 
         public static JObject GetJsonData() {
 
-            SetJsonDirectory(@"../../../FirstPokerTry/Data/");
+            SetJsonDirectory(@"../../../FirstPokerTry/Data/Json/");
 
             const string jsonPath = "data.json";
 
