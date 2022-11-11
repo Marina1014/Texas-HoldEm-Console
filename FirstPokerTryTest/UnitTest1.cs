@@ -87,10 +87,10 @@ public class Tests
         bool result1 = false;
 
         var handChecker = new HandChecker();
-        bool expected = handChecker.checkIfStraight(hand);
+        bool expected = handChecker.checkIfStraighExists(hand);
 
         var handChecker1 = new HandChecker();
-        bool expected1 = handChecker1.checkIfStraight(hand1);
+        bool expected1 = handChecker1.checkIfStraighExists(hand1);
         Assert.Multiple(() =>
         {
             Assert.That(result, Is.EqualTo(expected));
