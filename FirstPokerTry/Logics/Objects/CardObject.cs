@@ -9,10 +9,10 @@ namespace FirstPokerTry.Logics.Objects
 
         #region Properties
 
-        private readonly int _id;
-        public SuitEnum Suit { get; }
-        public ValueEnum Value { get; }
-        private readonly int _rank;
+        public int _id;
+        public SuitEnum Suit;
+        public ValueEnum Value;
+        public int _rank;
 
         #endregion
 
@@ -22,6 +22,11 @@ namespace FirstPokerTry.Logics.Objects
             Suit = suit;
             Value = value;
             _rank = Rank;
+        }
+
+        public CardObject()
+        {
+       
         }
 
         public override string ToString()
