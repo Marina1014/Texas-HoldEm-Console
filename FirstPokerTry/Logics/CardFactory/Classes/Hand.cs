@@ -8,6 +8,7 @@ namespace FirstPokerTry.Logics.CardFactory.Classes
 
         public Hand()
         {
+
         }
     }
 }

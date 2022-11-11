@@ -26,14 +26,13 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="UI\" />
-    <Folder Include="Logics\" />
     <Folder Include="Logics\Objects\" />
     <Folder Include="Logics\CardFactory\Contexts\" />
     <Folder Include="Data\Json\" />
     <Folder Include="Data\Database\" />
-    <Folder Include="Logics\Gameplay\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="DryIoc.dll" Version="5.2.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="NUnit" Version="3.13.3" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.3.0" />
