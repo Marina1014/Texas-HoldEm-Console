@@ -1,4 +1,16 @@
 ﻿using FirstPokerTry.Logics.CardFactory.Contexts;
 using Microsoft.EntityFrameworkCore;
 
-//to be continued...
+namespace FirstPokerTry
+{
+    class GFG
+    {
+
+        // Main Method
+        static public void Main(String[] args)
+        {
+
+            Console.WriteLine("Main Method");
+        }
+    }
+}
