@@ -12,8 +12,10 @@ namespace FirstPokerTry
         // Main Method
         public static void Main(String[] args)
         {
+            var game = new TheGame();
 
-            
+            game.Playthrough();
+            /*
             var cardDeck = JsonFileReader.GetJsonData();
             var cardDeck1 = new DeckShuffle();
 
@@ -25,7 +27,7 @@ namespace FirstPokerTry
             Console.WriteLine(String.Join(", ", cardDealer.DealPlayerHand(cardDeck)));
             Console.WriteLine(String.Join(", ", cardDealer.DealPlayerHand(cardDeck)));
             Console.WriteLine(String.Join(", ", cardDealer.DealNextCard(cardDeck)));
-            Console.WriteLine(String.Join(", ", cardDealer.DealNextCard(cardDeck)));
+            Console.WriteLine(String.Join(", ", cardDealer.DealNextCard(cardDeck)));*/
         }
     }
 }

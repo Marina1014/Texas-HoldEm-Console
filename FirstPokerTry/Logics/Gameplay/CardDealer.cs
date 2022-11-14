@@ -66,7 +66,5 @@ namespace FirstPokerTry.Logics.Gameplay
 
             return firstThreeCards;
         }
-
-
     }    
 }
