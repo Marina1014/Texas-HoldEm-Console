@@ -41,5 +41,6 @@ namespace FirstPokerTry.Data
             return (JArray) GetJsonData()["data"];
         }*/
 
+
     }
 }
