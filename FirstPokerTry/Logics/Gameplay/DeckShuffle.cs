@@ -34,19 +34,6 @@ namespace FirstPokerTry.Logics.Gameplay
                 cards[n] = value;
             }
         }
-
-        /*
-        private static void swap(List<CardObject> a, int i, int v)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static void swap(int[] arr, int a, int b)
-        {
-            int temp = arr[a];
-            arr[a] = arr[b]; arr[b] = temp;
-        }*/
-
     }
 }
 
