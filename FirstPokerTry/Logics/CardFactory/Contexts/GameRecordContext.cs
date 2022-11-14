@@ -9,13 +9,12 @@ namespace FirstPokerTry.Logics.CardFactory.Contexts
     public class GameRecordContext : DbContext
     {
         //public GameRecordContext(DbContextOptions<GameRecordContext> options) : base(options) { }
-
-        public DbSet<Player> Player => Set<Player>();
-        public DbSet<Game> Game => Set<Game>();
+        public DbSet<Player> Players => Set<Player>();
+        public DbSet<Game> Games => Set<Game>();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source = ../../../FirstPokerTry/Data/Database/GameRecord.db");
+            optionsBuilder.UseSqlite(@"Data Source=/Data/Database/GameRecord.db");
         }
     }
 }
