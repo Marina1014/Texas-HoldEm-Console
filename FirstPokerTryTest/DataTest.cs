@@ -15,7 +15,7 @@ public class DataTest
     public void Setup()
     {
     }
-
+    
     [Test]
     public void ShouldReturnCardDeck()
     {

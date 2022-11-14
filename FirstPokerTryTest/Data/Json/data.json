@@ -1,0 +1,314 @@
+﻿[
+    {
+      "Id": 1,
+      "Suit": "Spades",
+      "Value": "Two",
+      "Rank": 1
+    },
+    {
+      "Id": 2,
+      "Suit": "Spades",
+      "Value": "Three",
+      "Rank": 2
+    },
+    {
+      "Id": 3,
+      "Suit": "Spades",
+      "Value": "Four",
+      "Rank": 3
+    },
+    {
+      "Id": 4,
+      "Suit": "Spades",
+      "Value": "Five",
+      "Rank": 4
+    },
+    {
+      "Id": 5,
+      "Suit": "Spades",
+      "Value": "Six",
+      "Rank": 5
+    },
+    {
+      "Id": 6,
+      "Suit": "Spades",
+      "Value": "Seven",
+      "Rank": 6
+    },
+    {
+      "Id": 7,
+      "Suit": "Spades",
+      "Value": "Eight",
+      "Rank": 7
+    },
+    {
+      "Id": 8,
+      "Suit": "Spades",
+      "Value": "Nine",
+      "Rank": 8
+    },
+    {
+      "Id": 9,
+      "Suit": "Spades",
+      "Value": "Ten",
+      "Rank": 9
+    },
+    {
+      "Id": 10,
+      "Suit": "Spades",
+      "Value": "Jack",
+      "Rank": 10
+    },
+    {
+      "Id": 11,
+      "Suit": "Spades",
+      "Value": "Queen",
+      "Rank": 11
+    },
+    {
+      "Id": 12,
+      "Suit": "Spades",
+      "Value": "King",
+      "Rank": 12
+    },
+    {
+      "Id": 13,
+      "Suit": "Spades",
+      "Value": "Ace",
+      "Rank": 13
+    },
+    {
+      "Id": 14,
+      "Suit": "Hearts",
+      "Value": "Two",
+      "Rank": 1
+    },
+    {
+      "Id": 15,
+      "Suit": "Hearts",
+      "Value": "Three",
+      "Rank": 2
+    },
+    {
+      "Id": 16,
+      "Suit": "Hearts",
+      "Value": "Four",
+      "Rank": 3
+    },
+    {
+      "Id": 17,
+      "Suit": "Hearts",
+      "Value": "Five",
+      "Rank": 4
+    },
+    {
+      "Id": 18,
+      "Suit": "Hearts",
+      "Value": "Six",
+      "Rank": 5
+    },
+    {
+      "Id": 19,
+      "Suit": "Hearts",
+      "Value": "Seven",
+      "Rank": 6
+    },
+    {
+      "Id": 20,
+      "Suit": "Hearts",
+      "Value": "Eight",
+      "Rank": 7
+    },
+    {
+      "Id": 21,
+      "Suit": "Hearts",
+      "Value": "Nine",
+      "Rank": 8
+    },
+    {
+      "Id": 22,
+      "Suit": "Hearts",
+      "Value": "Ten",
+      "Rank": 9
+    },
+    {
+      "Id": 23,
+      "Suit": "Hearts",
+      "Value": "Jack",
+      "Rank": 10
+    },
+    {
+      "Id": 24,
+      "Suit": "Hearts",
+      "Value": "Queen",
+      "Rank": 11
+    },
+    {
+      "Id": 25,
+      "Suit": "Hearts",
+      "Value": "King",
+      "Rank": 12
+    },
+    {
+      "Id": 26,
+      "Suit": "Hearts",
+      "Value": "Ace",
+      "Rank": 13
+    },
+    {
+      "Id": 27,
+      "Suit": "Diamonds",
+      "Value": "Two",
+      "Rank": 1
+    },
+    {
+      "Id": 28,
+      "Suit": "Diamonds",
+      "Value": "Three",
+      "Rank": 2
+    },
+    {
+      "Id": 29,
+      "Suit": "Diamonds",
+      "Value": "Four",
+      "Rank": 3
+    },
+    {
+      "Id": 30,
+      "Suit": "Diamonds",
+      "Value": "Five",
+      "Rank": 4
+    },
+    {
+      "Id": 31,
+      "Suit": "Diamonds",
+      "Value": "Six",
+      "Rank": 5
+    },
+    {
+      "Id": 32,
+      "Suit": "Diamonds",
+      "Value": "Seven",
+      "Rank": 6
+    },
+    {
+      "Id": 33,
+      "Suit": "Diamonds",
+      "Value": "Eight",
+      "Rank": 7
+    },
+    {
+      "Id": 34,
+      "Suit": "Diamonds",
+      "Value": "Nine",
+      "Rank": 8
+    },
+    {
+      "Id": 35,
+      "Suit": "Diamonds",
+      "Value": "Ten",
+      "Rank": 9
+    },
+    {
+      "Id": 36,
+      "Suit": "Diamonds",
+      "Value": "Jack",
+      "Rank": 10
+    },
+    {
+      "Id": 37,
+      "Suit": "Diamonds",
+      "Value": "Queen",
+      "Rank": 11
+    },
+    {
+      "Id": 38,
+      "Suit": "Diamonds",
+      "Value": "King",
+      "Rank": 12
+    },
+    {
+      "Id": 39,
+      "Suit": "Diamonds",
+      "Value": "Ace",
+      "Rank": 13
+    },
+    {
+      "Id": 40,
+      "Suit": "Clubs",
+      "Value": "Two",
+      "Rank": 1
+    },
+    {
+      "Id": 41,
+      "Suit": "Clubs",
+      "Value": "Three",
+      "Rank": 2
+    },
+    {
+      "Id": 42,
+      "Suit": "Clubs",
+      "Value": "Four",
+      "Rank": 3
+    },
+    {
+      "Id": 43,
+      "Suit": "Clubs",
+      "Value": "Five",
+      "Rank": 4
+    },
+    {
+      "Id": 44,
+      "Suit": "Clubs",
+      "Value": "Six",
+      "Rank": 5
+    },
+    {
+      "Id": 45,
+      "Suit": "Clubs",
+      "Value": "Seven",
+      "Rank": 6
+    },
+    {
+      "Id": 46,
+      "Suit": "Clubs",
+      "Value": "Eight",
+      "Rank": 7
+    },
+    {
+      "Id": 47,
+      "Suit": "Clubs",
+      "Value": "Nine",
+      "Rank": 8
+    },
+    {
+      "Id": 48,
+      "Suit": "Clubs",
+      "Value": "Ten",
+      "Rank": 9
+    },
+    {
+      "Id": 49,
+      "Suit": "Clubs",
+      "Value": "Jack",
+      "Rank": 10
+    },
+    {
+      "Id": 50,
+      "Suit": "Clubs",
+      "Value": "Queen",
+      "Rank": 11
+    },
+    {
+      "Id": 51,
+      "Suit": "Clubs",
+      "Value": "King",
+      "Rank": 12
+    },
+    {
+      "Id": 52,
+      "Suit": "Clubs",
+      "Value": "Ace",
+      "Rank": 13
+    }
+]

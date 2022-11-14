@@ -1,30 +1,28 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using FirstPokerTry.Data;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FirstPokerTry.Logics.Objects;
 
 namespace FirstPokerTry.Logics.Gameplay
 {
     public class DeckShuffle
     {
-        /*static void CardList(string args)
+        public List<CardObject> CardList()
         {
-            string[] arr = { "one", "two", "three" };
-            Shuffle(arr);
+            var cardDeck = JsonFileReader.GetJsonData();
+            Shuffle(cardDeck);
+            return cardDeck;
+        }
 
-            for(int j = 0; j < arr.Length; j++)
-            {
-                Console.WriteLine(arr[j]);
-            }
-            Console.ReadLine();
-       }
-        
-       
-            public static void Shuffle(string[] a)
+
+        public static void Shuffle(List<CardObject> a)
         {
-            int n = a.Length;
+            int n = a.Count;
             Random rand = new Random();
 
             for (int i = 0; i < n; i++)
@@ -32,13 +30,20 @@ namespace FirstPokerTry.Logics.Gameplay
                 swap(a, i, i + rand.Next(n - i));
             }
         }
+
+        private static void swap(List<CardObject> a, int i, int v)
+        {
+            throw new NotImplementedException();
+        }
+
         public static void swap(int[] arr, int a, int b)
         {
             int temp = arr[a];
             arr[a] = arr[b]; arr[b] = temp;
         }
-     */   
+
     }
 }
+
 
     
