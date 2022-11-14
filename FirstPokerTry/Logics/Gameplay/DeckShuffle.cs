@@ -7,30 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FirstPokerTry.Logics.Objects;
+using NUnit.Framework;
 
 namespace FirstPokerTry.Logics.Gameplay
 {
     public class DeckShuffle
     {
-        public List<CardObject> CardList()
+        private static Random random = new Random();
+
+        public List<CardObject> CardList(List<CardObject> cards)
         {
-            var cardDeck = JsonFileReader.GetJsonData();
-            Shuffle(cardDeck);
-            return cardDeck;
+            Shuffle(cards);
+            return cards;
         }
 
 
-        public static void Shuffle(List<CardObject> a)
+        public static void Shuffle(List<CardObject> cards)
         {
-            int n = a.Count;
-            Random rand = new Random();
-
-            for (int i = 0; i < n; i++)
+            int n = cards.Count;
+            while (n > 1)
             {
-                swap(a, i, i + rand.Next(n - i));
+                n--;
+                int k = random.Next(n + 1);
+                CardObject value = cards[k];
+                cards[k] = cards[n];
+                cards[n] = value;
             }
         }
 
+        /*
         private static void swap(List<CardObject> a, int i, int v)
         {
             throw new NotImplementedException();
@@ -40,7 +45,7 @@ namespace FirstPokerTry.Logics.Gameplay
         {
             int temp = arr[a];
             arr[a] = arr[b]; arr[b] = temp;
-        }
+        }*/
 
     }
 }

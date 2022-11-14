@@ -15,7 +15,7 @@ namespace FirstPokerTry
             var cardDeck = JsonFileReader.GetJsonData();
             var cardDeck1 = new DeckShuffle();
             Console.WriteLine(String.Concat(cardDeck.Select(o => o.ToString())));
-            Console.WriteLine(cardDeck1.CardList());
+            Console.WriteLine(String.Join(", ", cardDeck1.CardList(cardDeck)));
         }
     }
 }
