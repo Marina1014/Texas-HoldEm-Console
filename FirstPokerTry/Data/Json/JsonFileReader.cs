@@ -3,17 +3,18 @@
 using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using FirstPokerTry.Logics.Objects;
 
 namespace FirstPokerTry.Data
 {
     public static class JsonFileReader
     {   
-        public static JArray ReadJsonFile(string path)
+        public static List<CardObject> ReadJsonFile(string path)
         {
             try
             {
                 var json = System.IO.File.ReadAllText(path);
-                return JsonConvert.DeserializeObject<JArray>(json);
+                return JsonConvert.DeserializeObject<List<CardObject>>(json);
             }
             catch (JsonReaderException e)
             {
@@ -29,9 +30,9 @@ namespace FirstPokerTry.Data
             Directory.SetCurrentDirectory(directory.FullName);
         }
 
-        public static JArray GetJsonData()
+        public static List<CardObject> GetJsonData()
         {
-            SetJsonDirectory(@"../../../FirstPokerTry/Data/Json/");
+            SetJsonDirectory(@"../../../Data/Json/");
             return ReadJsonFile("data.json");
         }
 

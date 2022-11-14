@@ -77,8 +77,8 @@ namespace FirstPokerTry.Logics.Gameplay
         public bool checkifThreeOfAKindExists (IEnumerable<CardObject> hand)
         {
             if (hand.GroupBy(c => c.Value)
-            .Where(g => g.Count() == 3)
-            .Count() == 1)
+                .Where(g => g.Count() == 3)
+                .Count() == 1)
             {
                 return true;
             }
@@ -111,9 +111,15 @@ namespace FirstPokerTry.Logics.Gameplay
             return false;
         }
 
-        public int FindHighestValue (List<CardObject> hand)
+        //Burde denne droppes her? 
+        public bool checkIfHighestValue (List<CardObject> hand)
         {
-            return 1;
+            if (checkIfPairExists(hand) || checkIfTwoPairsExists(hand) || checkifThreeOfAKindExists(hand) || checkIfStraighExists(hand) || checkIfFlushExists(hand) || checkifFourOfAKindExists(hand))
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
