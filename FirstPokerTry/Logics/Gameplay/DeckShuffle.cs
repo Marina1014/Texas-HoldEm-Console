@@ -9,7 +9,7 @@ namespace FirstPokerTry.Logics.Gameplay
 {
     public class DeckShuffle
     {
-        static void CardList(string args)
+        /*static void CardList(string args)
         {
             string[] arr = { "one", "two", "three" };
             Shuffle(arr);
@@ -37,7 +37,7 @@ namespace FirstPokerTry.Logics.Gameplay
             int temp = arr[a];
             arr[a] = arr[b]; arr[b] = temp;
         }
-        
+     */   
     }
 }
 
