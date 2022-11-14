@@ -1,20 +1,19 @@
 ﻿#nullable disable
 
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using FirstPokerTry.Logics.Objects;
+using Newtonsoft.Json;
 
-namespace FirstPokerTry.Data
+namespace FirstPokerTry.Data.Json
 {
-    public static class JsonFileReader
-    {   
-        public static List<CardObject> ReadJsonFile(string path)
+    public class JsonPlayersFileReader
+    {
+        public static List<PlayerObject> ReadJsonFile(string path)
         {
             try
             {
                 var json = System.IO.File.ReadAllText(path);
-                return JsonConvert.DeserializeObject<List<CardObject>>(json);
+                return JsonConvert.DeserializeObject<List<PlayerObject>>(json);
             }
             catch (JsonReaderException e)
             {
@@ -22,24 +21,21 @@ namespace FirstPokerTry.Data
                 throw;
             }
         }
-        private static void SetJsonDirectory(string path) {
+        private static void SetJsonDirectory(string path)
+        {
             var directory = new DirectoryInfo(path);
-            if (!directory.Exists) {
+            if (!directory.Exists)
+            {
                 directory.Create();
             }
             Directory.SetCurrentDirectory(directory.FullName);
         }
 
-        public static List<CardObject> GetJsonData()
+        public static List<PlayerObject> GetJsonPlayers()
         {
             SetJsonDirectory(@"../../../Data/Json/");
-            return ReadJsonFile("data.json");
+            return ReadJsonFile("players.json");
         }
-
-        /*public static JArray GetJsonArray()
-        {
-            return (JArray) GetJsonData()["data"];
-        }*/
-
     }
 }
+
