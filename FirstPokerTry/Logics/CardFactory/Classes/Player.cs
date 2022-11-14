@@ -24,6 +24,8 @@ namespace FirstPokerTry.Logics.CardFactory.Classes
             Name = name;
         }
 
+        public Player() {}
+
         #region Methods
 
         public void SetPlayer(PlayerObject playerObject)
