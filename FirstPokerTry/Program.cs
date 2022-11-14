@@ -1,16 +1,18 @@
-﻿using FirstPokerTry.Logics.CardFactory.Contexts;
+﻿using FirstPokerTry.Data;
+using FirstPokerTry.Logics.CardFactory.Contexts;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace FirstPokerTry
 {
-    class GFG
+    class Program
     {
 
         // Main Method
-        static public void Main(String[] args)
+        public static void Main(String[] args)
         {
-
-            Console.WriteLine("Main Method");
+            var cardDeck = JsonFileReader.GetJsonData();
+            Debug.WriteLine(cardDeck);
         }
     }
 }
