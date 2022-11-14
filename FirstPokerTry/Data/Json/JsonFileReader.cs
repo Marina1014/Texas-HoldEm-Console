@@ -1,36 +1,44 @@
-﻿using System;
+﻿#nullable disable
+
+using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace FirstPokerTry.Data
 {
     public static class JsonFileReader
-    {
-
-        public static JObject GetJsonData() {
-
-            SetJsonDirectory(@"../../../FirstPokerTry/Data/Json/");
-
-            const string jsonPath = "data.json";
-
-            return JObject.Parse(File.ReadAllText(jsonPath));
-        }
-
-        /*public void LoadJson()
+    {   
+        public static JArray ReadJsonFile(string path)
         {
-            object o1 = JObject.Parse(File.ReadAllText(@"c:\data.json"));
-
-            using (StreamReader file = File.OpenText(@"c:\data.json"))
-            using (JsonTextReader reader = new JsonTextReader(file))
+            try
             {
-                JObject o2 = (JObject)JToken.ReadFrom(reader);
+                var json = System.IO.File.ReadAllText(path);
+                return JsonConvert.DeserializeObject<JArray>(json);
             }
-        }*/
-
-        private static void SetJsonDirectory(string path)
-        {
-             if (Directory.Exists(path)) Directory.SetCurrentDirectory(path);
+            catch (JsonReaderException e)
+            {
+                Console.WriteLine("Error reading json file: " + e);
+                throw;
+            }
         }
+        private static void SetJsonDirectory(string path) {
+            var directory = new DirectoryInfo(path);
+            if (!directory.Exists) {
+                directory.Create();
+            }
+            Directory.SetCurrentDirectory(directory.FullName);
+        }
+
+        public static JArray GetJsonData()
+        {
+            SetJsonDirectory(@"../../../FirstPokerTry/Data/Json/");
+            return ReadJsonFile("data.json");
+        }
+
+        /*public static JArray GetJsonArray()
+        {
+            return (JArray) GetJsonData()["data"];
+        }*/
 
     }
 }
