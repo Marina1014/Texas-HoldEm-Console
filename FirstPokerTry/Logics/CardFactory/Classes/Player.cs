@@ -3,7 +3,6 @@
 using System;
 using FirstPokerTry.Logics.CardFactory.Interfaces;
 using FirstPokerTry.Logics.Objects;
-using System.ComponentModel.DataAnnotations;
 
 namespace FirstPokerTry.Logics.CardFactory.Classes
 {
@@ -11,7 +10,6 @@ namespace FirstPokerTry.Logics.CardFactory.Classes
     {
         #region Properties
 
-        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         private PlayerObject PlayerObject { get; set; }

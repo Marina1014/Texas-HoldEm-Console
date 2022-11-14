@@ -1,4 +1,4 @@
-﻿#nullable disable
+﻿/*#nullable disable
 
 using System;
 using Microsoft.EntityFrameworkCore;
@@ -17,5 +17,4 @@ namespace FirstPokerTry.Logics.CardFactory.Contexts
             optionsBuilder.UseSqlite(@"Data Source=/Data/Database/GameRecord.db");
         }
     }
-}
-
+}*/
