@@ -7,7 +7,7 @@ using FirstPokerTry.Logics.Objects;
 
 namespace FirstPokerTry.Data
 {
-    public static class JsonFileReader
+    public static class JsonCardDeckFileReader
     {   
         public static List<CardObject> ReadJsonFile(string path)
         {
@@ -30,10 +30,10 @@ namespace FirstPokerTry.Data
             Directory.SetCurrentDirectory(directory.FullName);
         }
 
-        public static List<CardObject> GetJsonData()
+        public static List<CardObject> GetJsonCardDeck()
         {
             SetJsonDirectory(@"../../../Data/Json/");
-            return ReadJsonFile("data.json");
+            return ReadJsonFile("carddeck.json");
         }
 
         /*public static JArray GetJsonArray()

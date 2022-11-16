@@ -20,7 +20,6 @@
     <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Data\Json\" />
-    <None Remove="Data\Database\" />
     <None Remove="Logics\Gameplay\" />
   </ItemGroup>
   <ItemGroup>
@@ -29,16 +28,15 @@
     <Folder Include="Logics\Objects\" />
     <Folder Include="Logics\CardFactory\Contexts\" />
     <Folder Include="Data\Json\" />
-    <Folder Include="Data\Database\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DryIoc.dll" Version="5.2.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="NUnit" Version="3.13.3" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.3.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.11">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
