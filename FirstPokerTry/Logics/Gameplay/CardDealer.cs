@@ -12,7 +12,11 @@ namespace FirstPokerTry.Logics.Gameplay
     public class CardDealer
     {
         private bool isShuffled = false;
-        private List<CardObject> firstThreeCards = new List<CardObject> { };
+        private List<CardObject> cardsOnTable = new List<CardObject> { };        
+        private List<CardObject> cardsPlayer1 = new List<CardObject> { };
+        private List<CardObject> cardsPlayer2 = new List<CardObject> { };
+
+
         private List<CardObject> shuffledDeck(List<CardObject> deck)
         {
             var shuffledDeck = new DeckShuffle();
@@ -30,41 +34,75 @@ namespace FirstPokerTry.Logics.Gameplay
 
             shuffledDeck(deck);
             
-            firstThreeCards.Add(deck[0]);            
-            firstThreeCards.Add(deck[1]);            
-            firstThreeCards.Add(deck[2]);
+            cardsOnTable.Add(deck[0]);            
+            cardsOnTable.Add(deck[1]);            
+            cardsOnTable.Add(deck[2]);
            
             deck.RemoveAt(0);
             deck.RemoveAt(0);
             deck.RemoveAt(0);
             isShuffled = true;
 
-            return firstThreeCards;       
+            return cardsOnTable;       
         }
 
-        public List<CardObject> DealPlayerHand(List<CardObject> deck)
+        public List<CardObject> DealPlayer1Hand(List<CardObject> deck)
         {
             shuffledDeck(deck);
-            List<CardObject> playerHand = new List<CardObject> { };
+            
+            cardsPlayer1.Add(deck[0]);            
+            cardsPlayer1.Add(deck[1]);
+            deck.RemoveAt(0);
+            deck.RemoveAt(0);
 
-            playerHand.Add(deck[0]);            
-            playerHand.Add(deck[1]);
-            deck.RemoveAt(0);
-            deck.RemoveAt(0);
             isShuffled = true;
 
-            return playerHand;
+            return cardsPlayer1;
+        }
+
+        public List<CardObject> DealPlayer2Hand(List<CardObject> deck)
+        {
+            shuffledDeck(deck);
+
+            cardsPlayer2.Add(deck[0]);
+            cardsPlayer2.Add(deck[1]);
+            deck.RemoveAt(0);
+            deck.RemoveAt(0);
+
+            isShuffled = true;
+
+            return cardsPlayer2;
         }
 
         public List<CardObject> DealNextCard(List<CardObject> deck)
         {
             shuffledDeck(deck);
             
-            firstThreeCards.Add(deck[0]);            
+            cardsOnTable.Add(deck[0]);            
             deck.RemoveAt(0);            
-            isShuffled = true;
+            isShuffled = true;        
 
-            return firstThreeCards;
+            return cardsOnTable;
+        }
+
+        public List<CardObject> getCardsPlayer1()
+        {
+            cardsPlayer1.Add(cardsOnTable[0]);
+            cardsPlayer1.Add(cardsOnTable[1]);
+            cardsPlayer1.Add(cardsOnTable[2]);
+            cardsPlayer1.Add(cardsOnTable[3]);
+            cardsPlayer1.Add(cardsOnTable[4]);            
+            return cardsPlayer1;
+        }
+
+        public List<CardObject> getCardsPlayer2()
+        {
+            cardsPlayer2.Add(cardsOnTable[0]);
+            cardsPlayer2.Add(cardsOnTable[1]);
+            cardsPlayer2.Add(cardsOnTable[2]);
+            cardsPlayer2.Add(cardsOnTable[3]);
+            cardsPlayer2.Add(cardsOnTable[4]);           
+            return cardsPlayer2;
         }
     }    
 }

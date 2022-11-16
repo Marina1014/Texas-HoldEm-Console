@@ -15,7 +15,7 @@
       "Id": 3,
       "Suit": "Spades",
       "Value": "Four",
-      "Rank": 3
+      "Rank" : 3
     },
     {
       "Id": 4,
