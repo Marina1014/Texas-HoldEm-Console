@@ -31,7 +31,7 @@ namespace FirstPokerTry.Logics.Objects
 
         public override string ToString()
         {
-            return $"{Suit}{Value}";
+            return $"{Suit}{Value}{_rank}";
         }
     }
 }

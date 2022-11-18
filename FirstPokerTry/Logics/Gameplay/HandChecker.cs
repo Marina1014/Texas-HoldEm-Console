@@ -29,7 +29,7 @@ namespace FirstPokerTry.Logics.Gameplay
 
         public bool checkifFourOfAKindExists(IEnumerable<CardObject> hand)
         {
-            if (hand.GroupBy(c => c.Value)
+            if (hand.GroupBy(c => c._rank)
             .Where(g => g.Count() == 4)
             .Count() == 1)
             {
@@ -76,7 +76,7 @@ namespace FirstPokerTry.Logics.Gameplay
 
         public bool checkifThreeOfAKindExists (IEnumerable<CardObject> hand)
         {
-            if (hand.GroupBy(c => c.Value)
+            if (hand.GroupBy(c => c._rank)
                 .Where(g => g.Count() == 3)
                 .Count() == 1)
             {
@@ -89,7 +89,7 @@ namespace FirstPokerTry.Logics.Gameplay
         public bool checkIfTwoPairsExists(IEnumerable<CardObject> hand)
         {
 
-            if (hand.GroupBy(c => c.Value)
+            if (hand.GroupBy(c => c._rank) 
                        .Where(g => g.Count() == 2)
                        .Count() == 2)
             {
@@ -102,13 +102,15 @@ namespace FirstPokerTry.Logics.Gameplay
         public bool checkIfPairExists (IEnumerable<CardObject> hand)
         {
             
-            if (hand.GroupBy(c => c.Value)
+            if (hand.GroupBy(c => c._rank)
                        .Where(g => g.Count() == 2)
                        .Count() == 1) {
                 return true;
+            } else {
+                return false;
+
             }
                        
-            return false;
         }
 
         //Burde denne droppes her? 

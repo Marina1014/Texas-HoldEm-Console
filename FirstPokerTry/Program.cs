@@ -11,11 +11,24 @@ namespace FirstPokerTry
 
         // Main Method
         public static void Main(String[] args)
-        {
+        {   
             var cardDeck = JsonFileReader.GetJsonData();
             var cardDeck1 = new DeckShuffle();
-            Console.WriteLine(String.Concat(cardDeck.Select(o => o.ToString())));
-            Console.WriteLine(String.Join(", ", cardDeck1.CardList(cardDeck)));
+            var handChecker = new HandChecker();
+
+            var cardDealer = new CardDealer();            
+           
+            Console.WriteLine(String.Join(", ", cardDealer.DealFirstThreeCards(cardDeck)));
+            Console.WriteLine(String.Join(", ", cardDealer.DealPlayer1Hand(cardDeck)));
+            Console.WriteLine(String.Join(", ", cardDealer.DealPlayer2Hand(cardDeck)));
+            Console.WriteLine(String.Join(", ", cardDealer.DealNextCard(cardDeck)));
+            Console.WriteLine(String.Join(", ", cardDealer.DealNextCard(cardDeck)));
+            
+            Console.WriteLine(String.Join(", ", cardDealer.getCardsPlayer1()));
+            Console.WriteLine(String.Join(", ", cardDealer.getCardsPlayer2()));
+
+            Console.WriteLine(handChecker.checkIfPairExists(cardDealer.getCardsPlayer1()));
+            Console.WriteLine(handChecker.checkIfPairExists(cardDealer.getCardsPlayer2()));
         }
     }
 }
