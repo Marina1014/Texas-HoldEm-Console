@@ -1,5 +1,5 @@
 #nullable disable
-
+/*
 using FirstPokerTry.Logics.CardFactory.Classes;
 using FirstPokerTry.Logics.CardFactory.Contexts;
 using Microsoft.AspNetCore.Mvc;
@@ -125,4 +125,4 @@ public class GameController : ControllerBase
 
     private bool GameExists(int id) => _context.Games.Any(e => e.Id == id);
 
-}
+}*/
