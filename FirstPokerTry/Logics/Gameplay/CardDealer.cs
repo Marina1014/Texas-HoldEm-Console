@@ -43,6 +43,13 @@ namespace FirstPokerTry.Logics.Gameplay
             deck.RemoveAt(0);
             isShuffled = true;
 
+            cardsPlayer1.Add(cardsOnTable[0]);
+            cardsPlayer1.Add(cardsOnTable[1]);
+            cardsPlayer1.Add(cardsOnTable[2]);
+            cardsPlayer2.Add(cardsOnTable[0]);
+            cardsPlayer2.Add(cardsOnTable[1]);
+            cardsPlayer2.Add(cardsOnTable[2]);
+
             return cardsOnTable;       
         }
 
@@ -80,28 +87,21 @@ namespace FirstPokerTry.Logics.Gameplay
             
             cardsOnTable.Add(deck[0]);            
             deck.RemoveAt(0);            
-            isShuffled = true;        
+            isShuffled = true;
+
+            cardsPlayer1.Add(cardsOnTable[cardsOnTable.Count - 1]);
+            cardsPlayer2.Add(cardsOnTable[cardsOnTable.Count - 1]);
 
             return cardsOnTable;
         }
 
         public List<CardObject> getCardsPlayer1()
-        {
-            cardsPlayer1.Add(cardsOnTable[0]);
-            cardsPlayer1.Add(cardsOnTable[1]);
-            cardsPlayer1.Add(cardsOnTable[2]);
-            cardsPlayer1.Add(cardsOnTable[3]);
-            cardsPlayer1.Add(cardsOnTable[4]);            
+        {         
             return cardsPlayer1;
         }
 
         public List<CardObject> getCardsPlayer2()
-        {
-            cardsPlayer2.Add(cardsOnTable[0]);
-            cardsPlayer2.Add(cardsOnTable[1]);
-            cardsPlayer2.Add(cardsOnTable[2]);
-            cardsPlayer2.Add(cardsOnTable[3]);
-            cardsPlayer2.Add(cardsOnTable[4]);           
+        {       
             return cardsPlayer2;
         }
     }    

@@ -101,10 +101,11 @@ namespace FirstPokerTry.Logics.Gameplay
 
         public bool checkIfPairExists (IEnumerable<CardObject> hand)
         {
-            
-            if (hand.GroupBy(c => c.rank)
-                       .Where(g => g.Count() == 2)
-                       .Count() == 1) {
+
+            var grouped = hand.GroupBy(c => c.rank);
+            var filtered = grouped.Where(grouped => grouped.Count() == 2);
+            var count = filtered.Count();
+            if (count == 1) {
                 return true;
             }
 
