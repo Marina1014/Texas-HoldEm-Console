@@ -5,25 +5,20 @@ namespace FirstPokerTry.Logics.Gameplay
 {
     public class TheGame
     {
-        private int pot = 0;
-        private int potPlayer1 = 1000;
-        private int potPayer2 = 1000;
+        private int _pot { get; set; }
+        private int _player1Pot { get; set; }
+        private int _player1Bet { get; set; }
+        private int _player2Pot { get; set; }
+        private int _player2Bet { get; set; }
 
-        private CardDealer cardDealer = new CardDealer();
-        
-        public void Playthrough()
+        public TheGame(int Pot, int Player1Pot, int Player1Bet, int Player2Pot, int Player2Bet)
         {
-            var cardDeck = JsonFileReader.GetJsonData();
-            Console.WriteLine("Welcome to this awesome poker game! This is a two-player game, " +
-                "grab your friend and start playing. To start, enter " + "start");
-            String? input = Console.ReadLine();
-
-            if (input == "start")
-            {
-                Console.WriteLine("Here are the cards on the table: " + string.Join(", ", cardDealer.DealFirstThreeCards(cardDeck)));
-                Console.WriteLine("Here are the cards for player1: " + string.Join(", ", cardDealer.DealPlayerHand(cardDeck)));
-            }
-        }             
+            _pot = Pot;
+            _player1Pot = Player1Pot;
+            _player1Bet = Player1Bet;
+            _player2Pot = Player2Pot;
+            _player2Bet = Player2Bet;
+        }
     }
 }
 
