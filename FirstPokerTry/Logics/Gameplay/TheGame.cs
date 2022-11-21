@@ -14,6 +14,8 @@ namespace FirstPokerTry.Logics.Gameplay
         private int _player1Bet { get; set; } = 0;
         private int _player2Pot { get; set; } = 1000;
         private int _player2Bet { get; set; } = 0;
+        public bool Player1Turn;
+        public bool Player2Turn;
 
         public TheGame(int Pot, int Player1Pot, int Player1Bet, int Player2Pot, int Player2Bet)
         {
@@ -46,7 +48,13 @@ namespace FirstPokerTry.Logics.Gameplay
             gameDisplay.PrintCardsOnTable();
 
             //så kan runden begynne
-            gameDisplay.PrintPlayersTurn(1);
+            Player1Turn = true;
+            while(Player1Turn == true)
+            {
+                gameDisplay.PrintPlayersTurn(1);
+                //nå kommer det godsaker
+
+            }
         }
     }
 }
