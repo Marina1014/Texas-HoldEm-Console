@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using FirstPokerTry.Logics.Objects;
 
-namespace FirstPokerTry.Data
+namespace FirstPokerTry.Data.Json
 {
     public static class JsonCardDeckFileReader
     {   
