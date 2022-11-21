@@ -12,14 +12,16 @@ namespace FirstPokerTry.Logics.CardFactory.Classes
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public List<CardObject> Hand { get; set; }
         private PlayerObject PlayerObject { get; set; }
 
         #endregion
 
-        public Player(int id, string name)
+        public Player(int id, string name, Hand hand)
         {
             Id = id;
             Name = name;
+            Hand = Hand;
         }
 
         public Player() {}

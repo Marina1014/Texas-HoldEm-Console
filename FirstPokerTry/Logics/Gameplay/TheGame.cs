@@ -29,26 +29,24 @@ namespace FirstPokerTry.Logics.Gameplay
             var gameDisplay = new GameDisplay(_pot, _player1Pot, _player1Bet, _player2Pot, _player2Bet);
             gameDisplay.PrintInitialGameMenu();
 
-            var deck = new CardDealer();
+            var jsonCardDeck = JsonCardDeckFileReader.GetJsonCardDeck();
+            var cardDealer = new CardDealer();
+            var deckShuffle = new DeckShuffle();
+
+            var cardDeck = deckShuffle.CardList(jsonCardDeck); 
             var player1 = new Player();
             var player2 = new Player();
 
-            player1.Hand = deck.DealPlayer1Hand();
-            player2.Hand = deck.DealPlayer2Hand();
+            player1.Hand = cardDealer.DealPlayer1Hand(cardDeck);
+            player2.Hand = cardDealer.DealPlayer2Hand(cardDeck);
 
             gameDisplay.PrintDealtCards();
 
-            var cardsOnTable = deck.DealFirstThreeCards();
+            var cardsOnTable = cardDealer.DealFirstThreeCards(cardDeck);
             gameDisplay.PrintCardsOnTable();
 
-            var player1Turn = new PlayerTurn(player1, cardsOnTable);
-            var player2Turn = new PlayerTurn(player2, cardsOnTable);
-
-            player1Turn.PlayTurn();
-            player2Turn.PlayTurn();
-
-            var winner = new Winner(player1, player2, cardsOnTable);
-            winner.DetermineWinner();
+            //så kan runden begynne
+            gameDisplay.PrintPlayersTurn(1);
         }
     }
 }
