@@ -41,18 +41,39 @@ namespace FirstPokerTry.UI
         }
         public void PrintDealtCards(List<CardObject> player1Hand, List<CardObject> player2Hand)
         {
-            Console.WriteLine("Player 1 has been dealt " + String.Join(", ", player1Hand));
-            Console.WriteLine("Player 2 has been dealt " + String.Join(", ", player2Hand));
+            Console.WriteLine("Dealing cards, look away player 2!");
+            Console.WriteLine("Press any key when you're ready.");
+            Console.ReadKey();
+            Console.WriteLine("Player 1 has been dealt:");
+            foreach (CardObject card in player1Hand)
+            {
+                Console.WriteLine($"{card.Suit} {card.Value}");
+            }
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
+            Console.Clear();
+
+            Console.WriteLine("Dealing cards, look away player 1!");
+            Console.WriteLine("Press any key when your're ready.");
+            Console.ReadKey();
+            Console.WriteLine("Player 2 has been dealt:");
+            foreach (CardObject card in player2Hand)
+            {
+                Console.WriteLine($"{card.Suit} {card.Value}");
+            }
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
             Console.Clear();
         }
         public void PrintCardsOnTable(List<CardObject> cardsOnTable)
         {
-            Console.WriteLine("The cards on the table are " + String.Join(", ", cardsOnTable));
+            Console.WriteLine("The cards on the table are:");
+            foreach (CardObject card in cardsOnTable)
+            {
+                Console.WriteLine($"{card.Suit} {card.Value}");
+            }
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
-            Console.Clear();
         }
         /*public bool PrintPlayersTurn(int playerNumber)
         {
