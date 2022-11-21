@@ -39,20 +39,25 @@ namespace FirstPokerTry.Logics.Gameplay
             var player1 = new Player();
             var player2 = new Player();
 
-            player1.Hand = cardDealer.DealPlayer1Hand(cardDeck);
-            player2.Hand = cardDealer.DealPlayer2Hand(cardDeck);
+            var player1Hand = player1.Hand;
+            var player2Hand = player2.Hand;
 
-            gameDisplay.PrintDealtCards();
+            player1Hand = cardDealer.DealPlayer1Hand(cardDeck);
+            player2Hand = cardDealer.DealPlayer2Hand(cardDeck);
+
+            //var player1HandString = CardObject.ToString(player1Hand); // IKKE SE :(
+
+            gameDisplay.PrintDealtCards(player1Hand, player2Hand);
 
             var cardsOnTable = cardDealer.DealFirstThreeCards(cardDeck);
             gameDisplay.PrintCardsOnTable();
-
+            /*
             //så kan runden begynne
             Player1Turn = true;
             while(Player1Turn == true)
             {
-                gameDisplay.PrintPlayersTurn(1);
-                if (gameDisplay.PrintPlayersTurn(1) == true)
+                GameDisplay.PrintPlayersTurn(1);
+                if (GameDisplay.PrintPlayersTurn(1) == true)
                 {
                     gameDisplay.PrintBetMenu();
                     _player1Bet = gameDisplay.Bet;
@@ -63,10 +68,10 @@ namespace FirstPokerTry.Logics.Gameplay
                 else
                 {
                     Player1Turn = false;
-                }
+                }*/
                 //nå kommer det godsaker
 
-            }
+            //}
         }
     }
 }

@@ -11,7 +11,10 @@ namespace FirstPokerTry
         // Main Method
         public static void Main(String[] args)
         {
-            var cardDeck = JsonCardDeckFileReader.GetJsonCardDeck();
+            var game = new TheGame(0, 1000, 0, 1000, 0);
+            game.PlayGame();
+            
+            /*var cardDeck = JsonCardDeckFileReader.GetJsonCardDeck();
             var cardDeck1 = new DeckShuffle();
             var handChecker = new HandChecker();
 
@@ -27,7 +30,7 @@ namespace FirstPokerTry
             Console.WriteLine(String.Join(", ", cardDealer.getCardsPlayer2()));
 
             Console.WriteLine(handChecker.checkIfPairExists(cardDealer.getCardsPlayer1()));
-            Console.WriteLine(handChecker.checkIfPairExists(cardDealer.getCardsPlayer2()));
+            Console.WriteLine(handChecker.checkIfPairExists(cardDealer.getCardsPlayer2()));*/
         }
     }
 }

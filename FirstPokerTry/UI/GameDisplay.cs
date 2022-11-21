@@ -1,5 +1,6 @@
 ﻿using System;
 using DryIoc.ImTools;
+using FirstPokerTry.Logics.Objects;
 //using FirstPokerTry.Logics.CardFactory.Classes;
 //using FirstPokerTry.Logics.Gameplay;
 
@@ -38,10 +39,10 @@ namespace FirstPokerTry.UI
             Console.ReadKey();
             Console.Clear();
         }
-        public void PrintDealtCards()
+        public void PrintDealtCards(List<CardObject> player1Hand, List<CardObject> player2Hand)
         {
-            Console.WriteLine("Player 1 has been dealt " + _player1Hand);
-            Console.WriteLine("Player 2 has been dealt " + _player2Hand);
+            Console.WriteLine("Player 1 has been dealt " + String.Join(", ", player1Hand));
+            Console.WriteLine("Player 2 has been dealt " + String.Join(", ", player2Hand));
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
             Console.Clear();
@@ -53,7 +54,7 @@ namespace FirstPokerTry.UI
             Console.ReadKey();
             Console.Clear();
         }
-        public bool PrintPlayersTurn(int playerNumber)
+        /*public bool PrintPlayersTurn(int playerNumber)
         {
             bool bet;
             Console.WriteLine("Player " + playerNumber + "'s turn.");
@@ -65,6 +66,7 @@ namespace FirstPokerTry.UI
             while (input.Key != ConsoleKey.B && input.Key != ConsoleKey.F)
             {
                 Console.WriteLine("Please enter a valid input.");
+                
             }
             
             while (true)
@@ -80,7 +82,7 @@ namespace FirstPokerTry.UI
                     break;
                 }
             }
-        }
+        }*/
         public void PrintBetMenu()
         {
             Console.WriteLine("How much would you like to bet?");
