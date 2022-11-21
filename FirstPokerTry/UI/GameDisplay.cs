@@ -47,9 +47,9 @@ namespace FirstPokerTry.UI
             Console.ReadKey();
             Console.Clear();
         }
-        public void PrintCardsOnTable()
+        public void PrintCardsOnTable(List<CardObject> cardsOnTable)
         {
-            Console.WriteLine("The cards on the table are " + _cardsOnTable);
+            Console.WriteLine("The cards on the table are " + String.Join(", ", cardsOnTable));
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
             Console.Clear();

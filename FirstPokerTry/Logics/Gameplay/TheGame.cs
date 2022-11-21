@@ -45,12 +45,10 @@ namespace FirstPokerTry.Logics.Gameplay
             player1Hand = cardDealer.DealPlayer1Hand(cardDeck);
             player2Hand = cardDealer.DealPlayer2Hand(cardDeck);
 
-            //var player1HandString = CardObject.ToString(player1Hand); // IKKE SE :(
-
             gameDisplay.PrintDealtCards(player1Hand, player2Hand);
 
             var cardsOnTable = cardDealer.DealFirstThreeCards(cardDeck);
-            gameDisplay.PrintCardsOnTable();
+            gameDisplay.PrintCardsOnTable(cardsOnTable);
             /*
             //så kan runden begynne
             Player1Turn = true;
