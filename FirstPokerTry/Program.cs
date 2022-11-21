@@ -1,4 +1,4 @@
-﻿using FirstPokerTry.Data;
+using FirstPokerTry.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using FirstPokerTry.Logics.Gameplay;

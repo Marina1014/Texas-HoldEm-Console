@@ -21,6 +21,11 @@
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Data\Json\" />
     <None Remove="Logics\Gameplay\" />
+    <None Remove="Bca.Nuget" />
+    <None Remove="Logics\PlayerFlyWeight\" />
+    <None Remove="Logics\PlayerFlyWeight\Abstract\" />
+    <None Remove="Logics\PlayerFlyWeight\Players\" />
+    <None Remove="Logics\PlayerFlyWeight\SingletonPlayer\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -28,6 +33,10 @@
     <Folder Include="Logics\Objects\" />
     <Folder Include="Logics\CardFactory\Contexts\" />
     <Folder Include="Data\Json\" />
+    <Folder Include="Logics\PlayerFlyWeight\" />
+    <Folder Include="Logics\PlayerFlyWeight\Abstract\" />
+    <Folder Include="Logics\PlayerFlyWeight\Players\" />
+    <Folder Include="Logics\PlayerFlyWeight\SingletonPlayer\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DryIoc.dll" Version="5.2.2" />
@@ -40,5 +49,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Bca.Nuget" Version="0.2.0" />
   </ItemGroup>
 </Project>
