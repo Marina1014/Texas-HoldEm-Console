@@ -38,7 +38,7 @@ namespace FirstPokerTry.Logics.Gameplay
 
             gameDisplay.PrintDealtCards();
 
-            var cardsOnTable = deck.DealFlop();
+            var cardsOnTable = deck.DealFirstThreeCards();
             gameDisplay.PrintCardsOnTable();
 
             var player1Turn = new PlayerTurn(player1, cardsOnTable);
