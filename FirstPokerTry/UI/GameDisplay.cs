@@ -8,40 +8,47 @@ namespace FirstPokerTry.UI
     public class GameDisplay
     {
 
-        public int Pot;
-        public string CardsOnTable;
-        public int PlayerNumber;
+        private int _pot;
+        private string _cardsOnTable;
+        private int _playerNumber;
 
-        public int Player1Pot;
-        public int Player1Bet;
-        public string Player1Hand;
+        private int _player1Pot;
+        private int _player1Bet;
+        private string _player1Hand;
 
-        public int Player2Pot;
-        public int Player2Bet;
-        public string Player2Hand;
+        private int _player2Pot;
+        private int _player2Bet;
+        private string _player2Hand;
 
-
+        public GameDisplay(int Pot, int Player1Pot, int Player1Bet, int Player2Pot, int Player2Bet)
+        {
+            _pot = Pot;
+            _player1Pot = Player1Pot;
+            _player1Bet = Player1Bet;
+            _player2Pot = Player2Pot;
+            _player2Bet = Player2Bet;
+        }
         public void PrintInitialGameMenu()
         {
             Console.WriteLine("Welcome to Texas Hold'em Poker!");
-            Console.WriteLine("The pot is currently at " + Pot);
-            Console.WriteLine("Player 1 has " + Player1Pot);
-            Console.WriteLine("Player 2 has " + Player2Pot);
+            Console.WriteLine("The pot is currently at " + _pot);
+            Console.WriteLine("Player 1 has " + _player1Pot);
+            Console.WriteLine("Player 2 has " + _player2Pot);
             Console.WriteLine("Press any key to play a new game.");
             Console.ReadKey();
             Console.Clear();
         }
         public void PrintDealtCards()
         {
-            Console.WriteLine("Player 1 has been dealt " + Player1Hand);
-            Console.WriteLine("Player 2 has been dealt " + Player2Hand);
+            Console.WriteLine("Player 1 has been dealt " + _player1Hand);
+            Console.WriteLine("Player 2 has been dealt " + _player2Hand);
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
             Console.Clear();
         }
         public void PrintCardsOnTable()
         {
-            Console.WriteLine("The cards on the table are " + CardsOnTable);
+            Console.WriteLine("The cards on the table are " + _cardsOnTable);
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
             Console.Clear();
@@ -75,9 +82,9 @@ namespace FirstPokerTry.UI
             Console.WriteLine("Press 1 to bet 10, 2 to bet 20, 3 to bet 30, 4 to bet 40,");
             Console.WriteLine("5 to bet 50, 6 to bet 60, 7 to bet 70, 8 to bet 80, or 9 to bet 90.");
         }
-        public int ReadBetInput()
+        public int ReadBetInput(int bet)
         {
-            int bet = 0;
+            //int bet = 0;
             return Console.ReadKey().Key == ConsoleKey.D1 ? bet = 10 :
             Console.ReadKey().Key == ConsoleKey.D2 ? bet = 20 :
             Console.ReadKey().Key == ConsoleKey.D3 ? bet = 30 :
@@ -98,9 +105,9 @@ namespace FirstPokerTry.UI
         }
         public void PrintPotStatus()
         {
-            Console.WriteLine("Pot: " + Pot);
-            Console.WriteLine("Player 1 Pot: " + Player1Pot);
-            Console.WriteLine("Player 2 Pot: " + Player2Pot);
+            Console.WriteLine("Pot: " + _pot);
+            Console.WriteLine("Player 1 Pot: " + _player1Pot);
+            Console.WriteLine("Player 2 Pot: " + _player2Pot);
         }
         public void PrintWinner(int playerNumber)
         {
