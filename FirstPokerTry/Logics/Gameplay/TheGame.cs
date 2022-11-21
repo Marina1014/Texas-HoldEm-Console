@@ -52,6 +52,18 @@ namespace FirstPokerTry.Logics.Gameplay
             while(Player1Turn == true)
             {
                 gameDisplay.PrintPlayersTurn(1);
+                if (gameDisplay.PrintPlayersTurn(1) == true)
+                {
+                    gameDisplay.PrintBetMenu();
+                    _player1Bet = gameDisplay.Bet;
+                    _player1Pot = _player1Pot - _player1Bet;
+                    _pot = _pot + _player1Bet;
+                    Player1Turn = false;
+                }
+                else
+                {
+                    Player1Turn = false;
+                }
                 //nå kommer det godsaker
 
             }
