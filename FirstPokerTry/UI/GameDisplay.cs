@@ -39,30 +39,28 @@ namespace FirstPokerTry.UI
             Console.ReadKey();
             Console.Clear();
         }
+        public void PrintPlayerHand(int playerNumber, List<CardObject> playerHand)
+        {
+            Console.WriteLine("Player " + playerNumber + " has been dealt:");
+            foreach (CardObject card in playerHand)
+            {
+                Console.WriteLine($"{card.Suit} {card.Value}");
+            }
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
+        }
         public void PrintDealtCards(List<CardObject> player1Hand, List<CardObject> player2Hand)
         {
             Console.WriteLine("Dealing cards, look away player 2!");
             Console.WriteLine("Press any key when you're ready.");
             Console.ReadKey();
-            Console.WriteLine("Player 1 has been dealt:");
-            foreach (CardObject card in player1Hand)
-            {
-                Console.WriteLine($"{card.Suit} {card.Value}");
-            }
-            Console.WriteLine("Press any key to continue.");
-            Console.ReadKey();
+            PrintPlayerHand(1, player1Hand);
             Console.Clear();
 
             Console.WriteLine("Dealing cards, look away player 1!");
             Console.WriteLine("Press any key when your're ready.");
             Console.ReadKey();
-            Console.WriteLine("Player 2 has been dealt:");
-            foreach (CardObject card in player2Hand)
-            {
-                Console.WriteLine($"{card.Suit} {card.Value}");
-            }
-            Console.WriteLine("Press any key to continue.");
-            Console.ReadKey();
+            PrintPlayerHand(2, player2Hand);
             Console.Clear();
         }
         public void PrintCardsOnTable(List<CardObject> cardsOnTable)
@@ -104,6 +102,13 @@ namespace FirstPokerTry.UI
                 }
             }
         }*/
+
+        public void PrintPlayerFolded(int playerNumber)
+        {
+            Console.WriteLine("Player " + playerNumber + " has folded.");
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
+        }
         public void PrintBetMenu()
         {
             Console.WriteLine("How much would you like to bet?");
@@ -143,6 +148,12 @@ namespace FirstPokerTry.UI
         {
             Console.WriteLine("Player " + playerNumber + " has won the game!");
             Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
+        }
+        public void PrintDraw()
+        {
+            Console.WriteLine("The game has ended in a draw!");
+            Console.WriteLine("Press any key to close.");
             Console.ReadKey();
         }
     }
