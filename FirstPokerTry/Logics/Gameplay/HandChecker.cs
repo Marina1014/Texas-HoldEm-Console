@@ -20,6 +20,7 @@ namespace FirstPokerTry.Logics.Gameplay
             return false;
         }
 
+        /*
         public List<CardObject> giveFlushList(List<CardObject> hand)
         {
             var flush = hand.GroupBy(c => c.Suit).Where(g => g.Count() == 5);
@@ -34,7 +35,7 @@ namespace FirstPokerTry.Logics.Gameplay
         private static string ToString(SuitEnum suitEnum)
         {
             return suitEnum.ToString();
-        }
+        }*/
 
         public bool checkIfStraightFlushExists(IEnumerable<CardObject> hand)
         {
@@ -51,14 +52,6 @@ namespace FirstPokerTry.Logics.Gameplay
 
                 //IEnumerable<CardObject> shitList = handList.Where(o => ToString((SuitEnum)(char)o.Suit) == ToString((SuitEnum)(char)suitEnum(handList)));
                 //handList = shitList as List<CardObject>;
-
-                for (int i = 0; i < 6; i ++)
-                {
-                    if (handList[i].Suit == handList[i+1].Suit)
-                    {
-
-                    }
-                }
 
             }*/
             if (handListHearts.Count() == 5) 
