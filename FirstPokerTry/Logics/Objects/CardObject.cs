@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 //using FirstPokerTry.Logics.CardFactory.Interfaces;
 using FirstPokerTry.Logics.CardFactory.Enumerations;
 
@@ -31,7 +31,7 @@ namespace FirstPokerTry.Logics.Objects
 
         public override string ToString()
         {
-            return $"{Suit}{Value}{rank}";
+            return $"{Suit}{Value}";
         }
     }
 }

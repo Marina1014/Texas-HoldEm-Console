@@ -1,5 +1,6 @@
 ﻿using System;
 using DryIoc.ImTools;
+using FirstPokerTry.Logics.Objects;
 //using FirstPokerTry.Logics.CardFactory.Classes;
 //using FirstPokerTry.Logics.Gameplay;
 
@@ -38,53 +39,81 @@ namespace FirstPokerTry.UI
             Console.ReadKey();
             Console.Clear();
         }
-        public void PrintDealtCards()
+        public void PrintDealtCards(List<CardObject> player1Hand, List<CardObject> player2Hand)
         {
-            Console.WriteLine("Player 1 has been dealt " + _player1Hand);
-            Console.WriteLine("Player 2 has been dealt " + _player2Hand);
+            Console.WriteLine("Dealing cards, look away player 2!");
+            Console.WriteLine("Press any key when you're ready.");
+            Console.ReadKey();
+            Console.WriteLine("Player 1 has been dealt:");
+            foreach (CardObject card in player1Hand)
+            {
+                Console.WriteLine($"{card.Suit} {card.Value}");
+            }
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
+            Console.Clear();
+
+            Console.WriteLine("Dealing cards, look away player 1!");
+            Console.WriteLine("Press any key when your're ready.");
+            Console.ReadKey();
+            Console.WriteLine("Player 2 has been dealt:");
+            foreach (CardObject card in player2Hand)
+            {
+                Console.WriteLine($"{card.Suit} {card.Value}");
+            }
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
             Console.Clear();
         }
-        public void PrintCardsOnTable()
+        public void PrintCardsOnTable(List<CardObject> cardsOnTable)
         {
-            Console.WriteLine("The cards on the table are " + _cardsOnTable);
+            Console.WriteLine("The cards on the table are:");
+            foreach (CardObject card in cardsOnTable)
+            {
+                Console.WriteLine($"{card.Suit} {card.Value}");
+            }
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
-            Console.Clear();
         }
-        public void PrintPlayersTurn(int playerNumber)
+        /*public bool PrintPlayersTurn(int playerNumber)
         {
+            bool bet;
             Console.WriteLine("Player " + playerNumber + "'s turn.");
             Console.WriteLine("Would you like to bet (b) or fold (f)?");
             Console.ReadKey();
 
-            if (Console.ReadKey().Key == ConsoleKey.B)
+            var input = Console.ReadKey();
+            
+            while (input.Key != ConsoleKey.B && input.Key != ConsoleKey.F)
             {
-                Console.Clear();
-                PrintBetMenu();
+                Console.WriteLine("Please enter a valid input.");
+                
             }
-            else if (Console.ReadKey().Key == ConsoleKey.F)
+            
+            while (true)
             {
-                Console.WriteLine("Player " + playerNumber + " has folded.");
-                Console.WriteLine("Press any key to continue.");
-                Console.ReadKey();
+                if (input.Key == ConsoleKey.B)
+                {
+                    bet = true;
+                    break;
+                }
+                else if (input.Key == ConsoleKey.F)
+                {
+                    bet = false;
+                    break;
+                }
             }
-            else
-            {
-                Console.WriteLine("Invalid input.");
-                Console.WriteLine("Would you like to bet (b) or fold (f)?");
-            }
-        }
+        }*/
         public void PrintBetMenu()
         {
             Console.WriteLine("How much would you like to bet?");
-            Console.WriteLine("Press 1 to bet 10, 2 to bet 20, 3 to bet 30, 4 to bet 40,");
-            Console.WriteLine("5 to bet 50, 6 to bet 60, 7 to bet 70, 8 to bet 80, or 9 to bet 90.");
+            Console.WriteLine("Press 1 to bet 10, 2 to bet 20, 3 to bet 30, 4 to bet 40, 5 to bet 50,");
+            Console.WriteLine("6 to bet 60, 7 to bet 70, 8 to bet 80, 9 to bet 90, or 0 to bet 100.");
+            ReadBetInput();
         }
-        public int ReadBetInput(int bet)
+        public int ReadBetInput()
         {
-            //int bet = 0;
+            int bet = 0;
             return Console.ReadKey().Key == ConsoleKey.D1 ? bet = 10 :
             Console.ReadKey().Key == ConsoleKey.D2 ? bet = 20 :
             Console.ReadKey().Key == ConsoleKey.D3 ? bet = 30 :
@@ -94,6 +123,7 @@ namespace FirstPokerTry.UI
             Console.ReadKey().Key == ConsoleKey.D7 ? bet = 70 :
             Console.ReadKey().Key == ConsoleKey.D8 ? bet = 80 :
             Console.ReadKey().Key == ConsoleKey.D9 ? bet = 90 :
+            Console.ReadKey().Key == ConsoleKey.D0 ? bet = 100 :
             bet = 0;
         }
         public void PrintPlayersBet(int playerNumber, int bet)
