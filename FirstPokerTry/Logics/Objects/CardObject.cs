@@ -9,19 +9,19 @@ namespace FirstPokerTry.Logics.Objects
 
         #region Properties
 
-        public int _id;
+        public int id;
         public SuitEnum Suit;
         public ValueEnum Value;
-        public int _rank;
+        public int rank;
 
         #endregion
 
         public CardObject(int Id, SuitEnum suit, ValueEnum value, int Rank)
         {
-            _id = Id;
+            id = Id;
             Suit = suit;
             Value = value;
-            _rank = Rank;
+            rank = Rank;
         }
 
         public CardObject()
@@ -31,7 +31,7 @@ namespace FirstPokerTry.Logics.Objects
 
         public override string ToString()
         {
-            return $"{Suit}{Value}{_rank}";
+            return $"{Suit}{Value}{rank}";
         }
     }
 }

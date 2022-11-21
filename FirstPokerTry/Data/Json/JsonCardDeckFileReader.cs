@@ -36,11 +36,5 @@ namespace FirstPokerTry.Data
             return ReadJsonFile("carddeck.json");
         }
 
-        /*public static JArray GetJsonArray()
-        {
-            return (JArray) GetJsonData()["data"];
-        }*/
-
-
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using FirstPokerTry.Data.Json;
 using FirstPokerTry.Logics.CardFactory.Classes;
 using FirstPokerTry.Logics.Gameplay;
