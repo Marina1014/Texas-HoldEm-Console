@@ -11,12 +11,47 @@ namespace FirstPokerTry.Logics.Gameplay
     {
         public bool checkIfRoyalFlushExits(IEnumerable<CardObject> hand)
         {
+            var handListHearts = hand.OrderBy(c => c.rank)
+                .Where(o => o.Suit == SuitEnum.Hearts)
+                .ToList();
+            var handListClubs = hand.OrderBy(c => c.rank)
+                .Where(o => o.Suit == SuitEnum.Clubs)
+                .ToList();
+            var handListSpades = hand.OrderBy(c => c.rank).
+                Where(o => o.Suit == SuitEnum.Spades)
+                .ToList();
+            var handListDiamonds = hand.OrderBy(c => c.rank)
+                .Where(o => o.Suit == SuitEnum.Diamonds)
+                .ToList();
 
-            var handList = hand.OrderBy(c => c.rank).ToList();
-            if (handList[6].Value == CardFactory.Enumerations.ValueEnum.Ace && checkIfFlushExists(hand) && checkIfStraighExists(hand))
+            if (handListHearts.Count > 4 && handListHearts.Any(n => n.Value == ValueEnum.Ace))
             {
-                return true;
+               
+                if(checkStraightForRoyalFlush(handListHearts))
+                {
+                    return true;
+                }
+
+            } else if (handListClubs.Count > 4 && handListClubs.Any(n => n.Value == ValueEnum.Ace))
+            {
+                if (checkStraightForRoyalFlush(handListClubs))
+                {
+                    return true;
+                }
+            } else if (handListDiamonds.Count > 4 && handListDiamonds.Any(n => n.Value == ValueEnum.Ace))
+            {
+                if (checkStraightForRoyalFlush(handListDiamonds))
+                {
+                    return true;
+                }
+            } else if (handListSpades.Count > 4 && handListSpades.Any(n => n.Value == ValueEnum.Ace))
+            {
+                if (checkStraightForRoyalFlush(handListSpades))
+                {
+                    return true;
+                }
             }
+
             return false;
         }
 
@@ -54,26 +89,26 @@ namespace FirstPokerTry.Logics.Gameplay
                 //handList = shitList as List<CardObject>;
 
             }*/
-            if (handListHearts.Count() == 5) 
+            if (handListHearts.Count() > 4) 
             {
                 if (checkStraightForFlush(handListHearts))
                 {
                     return true;
                 }             
-            } else if (handListClubs.Count() == 5)
+            } else if (handListClubs.Count() > 4)
             {
                 if (checkStraightForFlush(handListClubs))
                 {
                     return true;
                 }               
-            } else if (handListDiamonds.Count() == 5)
+            } else if (handListDiamonds.Count() > 4)
             {
                 if (checkStraightForFlush(handListDiamonds))
                 {
                     return true;
                 }              
                 
-            } else if (handListSpades.Count() == 5)
+            } else if (handListSpades.Count() > 4)
             {
                 if (checkStraightForFlush(handListSpades))
                 {
@@ -117,6 +152,13 @@ namespace FirstPokerTry.Logics.Gameplay
             return false;
         }
 
+        public bool checkStraightForRoyalFlush(IEnumerable<CardObject> hand)
+        {
+            var handList = hand.OrderBy(c => c.rank).ToList();
+
+            return checkStraightWithMoreThan5OfSuit(hand, out handList);
+        }
+
         public bool checkStraightForFlush(IEnumerable<CardObject> hand)
         {
             var handList = hand.OrderBy(c => c.rank).ToList();
@@ -129,11 +171,39 @@ namespace FirstPokerTry.Logics.Gameplay
                 }
             }
 
+            return checkStraightWithMoreThan5OfSuit(hand, out handList);
+        }
+
+        private static bool checkStraightWithMoreThan5OfSuit(IEnumerable<CardObject> hand, out List<CardObject> handList)
+        {
             handList = hand.OrderBy(c => c.rank).ToList();
 
-            return 
-                    handList[4].rank - handList[0].rank == 4 ? true :
-                        false;
+            int length = handList.Count;
+
+            switch (length)
+            {
+                case 5:
+                    if (handList[4].rank - handList[0].rank == 4)
+                    {
+                        return true;
+                    }
+                    break;
+                case 6:
+                    if (handList[5].rank - handList[1].rank == 4 || handList[4].rank - handList[0].rank == 4)
+                    {
+                        return true;
+                    }
+                    break;
+                case 7:
+                    if (handList[6].rank - handList[2].rank == 4 || handList[5].rank - handList[1].rank == 4 || handList[4].rank - handList[0].rank == 4)
+                    {
+                        return true;
+                    }
+
+                    break;
+            }
+
+            return false;
         }
 
         public bool checkIfStraighExists(IEnumerable<CardObject> hand) 
@@ -170,14 +240,12 @@ namespace FirstPokerTry.Logics.Gameplay
 
         public bool checkIfTwoPairsExists(IEnumerable<CardObject> hand)
         {
-
             if (hand.GroupBy(c => c.rank) 
                        .Where(g => g.Count() == 2)
                        .Count() == 2)
             {
                 return true;
             }
-
             return false;
         }
 
