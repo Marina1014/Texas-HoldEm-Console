@@ -1,46 +1,44 @@
 ﻿using System;
 using DryIoc.ImTools;
 using FirstPokerTry.Logics.Objects;
-using FirstPokerTry.Logics.CardFactory.Classes;
-using FirstPokerTry.Logics.Gameplay;
+//using FirstPokerTry.Logics.CardFactory.Classes;
+//using FirstPokerTry.Logics.Gameplay;
 
 namespace FirstPokerTry.UI
 {
     public class GameDisplay
     {
 
-        private int _pot;
+        public int Pot { get; set; }
         public List<CardObject> cardsOnTable { get; set; }
         private int _playerNumber;
 
-        private int _player1Pot;
-        private int _player1Bet;
+        public int Player1Pot { get; set; }
+        public int Player1Bet { get; set; }
         private string _player1Hand;
 
-        private int _player2Pot;
-        private int _player2Bet;
+        public int Player2Pot { get; set; }
+        public int Player2Bet { get; set; }
         private string _player2Hand;
 
-        public GameDisplay(int Pot, int Player1Pot, int Player1Bet, int Player2Pot, int Player2Bet)
+        public GameDisplay(int pot, int player1Pot, int player1Bet, int player2Pot, int player2Bet)
         {
-            _pot = Pot;
-            _player1Pot = Player1Pot;
-            _player1Bet = Player1Bet;
-            _player2Pot = Player2Pot;
-            _player2Bet = Player2Bet;
+            Pot = pot;
+            Player1Pot = player1Pot;
+            Player1Bet = player1Bet;
+            Player2Pot = player2Pot;
+            Player2Bet = player2Bet;
         }
-
         public void PrintInitialGameMenu()
         {
             Console.WriteLine("Welcome to Texas Hold'em Poker!");
-            Console.WriteLine("The pot is currently at " + _pot);
-            Console.WriteLine("Player 1 has " + _player1Pot);
-            Console.WriteLine("Player 2 has " + _player2Pot);
+            Console.WriteLine("The pot is currently at " + Pot);
+            Console.WriteLine("Player 1 has " + Player1Pot);
+            Console.WriteLine("Player 2 has " + Player2Pot);
             Console.WriteLine("Press any key to play a new game.");
             Console.ReadKey();
             Console.Clear();
         }
-
         public void PrintDealtCards(List<CardObject> player1Hand, List<CardObject> player2Hand)
         {
             Console.WriteLine("Player 1 has been dealt " + String.Join(", ", player1Hand));
@@ -49,24 +47,9 @@ namespace FirstPokerTry.UI
             Console.ReadKey();
             Console.Clear();
         }
-
-        /*  public void PrintPlayerHand(int playerNumber, List<CardObject> playerHand)
-          {
-              Console.WriteLine("Player " + playerNumber + " has been dealt:");
-              foreach (CardObject card in playerHand)
-              {
-                  Console.WriteLine($"{card.Suit} {card.Value}");
-              }
-              Console.WriteLine("Press any key to continue.");
-              Console.ReadKey();
-          }
-        */
-
-
-
         public void PrintCardsOnTable()
         {
-            Console.WriteLine("The cards on the table are " + cardsOnTable);
+            Console.WriteLine("The cards on the table are: ");
             foreach (CardObject card in cardsOnTable)
             {
                 Console.WriteLine($"{card.Suit} {card.Value}");
@@ -76,10 +59,10 @@ namespace FirstPokerTry.UI
             Console.Clear();
         }
 
-
         public bool PrintPlayersTurn(int playerNumber)
         {
             bool bet;
+            Console.WriteLine("");
             Console.WriteLine("Player " + playerNumber + "'s turn.");
             Console.WriteLine("Would you like to bet (b) or fold (f)?");
 
@@ -88,6 +71,7 @@ namespace FirstPokerTry.UI
             while (input.Key != ConsoleKey.B && input.Key != ConsoleKey.F)
             {
                 Console.WriteLine("Please enter a valid input.");
+
             }
 
             while (true)
@@ -105,10 +89,10 @@ namespace FirstPokerTry.UI
 
         public void PrintBetMenu()
         {
+            Console.WriteLine("");
             Console.WriteLine("How much would you like to bet?");
             Console.WriteLine("Press 1 to bet 10, 2 to bet 20, 3 to bet 30, 4 to bet 40, 5 to bet 50,");
             Console.WriteLine("6 to bet 60, 7 to bet 70, 8 to bet 80, 9 to bet 90, or 0 to bet 100.");
-          //  ReadBetInput();
         }
 
         public int ReadBetInput()
@@ -143,43 +127,24 @@ namespace FirstPokerTry.UI
                     return ReadBetInput();
             }
         }
-
-       /* public void PrintPlayerFolded(int playerNumber)
-        {
-            Console.WriteLine("Player " + playerNumber + " has folded.");
-            Console.WriteLine("Press any key to continue.");
-            Console.ReadKey();
-        }
-       */
-
-      /*  public void PrintPlayersBet(int playerNumber, int bet)
+        public void PrintPlayersBet(int playerNumber, int bet)
         {
             Console.WriteLine("Player " + playerNumber + " has bet " + bet);
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
             Console.Clear();
         }
-
-        public void PrintPotStatus(int _pot, int _player1Pot, int _player2Pot)
+        public void PrintPotStatus()
         {
-            Console.WriteLine("Pot: " + _pot);
-            Console.WriteLine("Player 1 Pot: " + _player1Pot);
-            Console.WriteLine("Player 2 Pot: " + _player2Pot);
+            Console.WriteLine("Pot: " + Pot);
+            Console.WriteLine("Player 1 Pot: " + Player1Pot);
+            Console.WriteLine("Player 2 Pot: " + Player2Pot);
         }
-
         public void PrintWinner(int playerNumber)
         {
             Console.WriteLine("Player " + playerNumber + " has won the game!");
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
         }
-
-        public void PrintDraw()
-        {
-            Console.WriteLine("The game has ended in a draw!");
-            Console.WriteLine("Press any key to close.");
-            Console.ReadKey();
-        }
-      */
     }
 }

@@ -9,7 +9,9 @@ namespace FirstPokerTry.Logics.Gameplay
 {
     public class HandChecker
     {
-        public bool checkIfRoyalFlushExits(IEnumerable<CardObject> hand)
+        private int _score = 0;
+
+        public int checkIfRoyalFlushExits(IEnumerable<CardObject> hand)
         {
             var handListHearts = hand.OrderBy(c => c.rank)
                 .Where(o => o.Suit == SuitEnum.Hearts)
@@ -29,30 +31,30 @@ namespace FirstPokerTry.Logics.Gameplay
                
                 if(checkStraightForRoyalFlush(handListHearts))
                 {
-                    return true;
+                    return _score + 1;
                 }
 
             } else if (handListClubs.Count > 4 && handListClubs.Any(n => n.Value == ValueEnum.Ace))
             {
                 if (checkStraightForRoyalFlush(handListClubs))
                 {
-                    return true;
+                    return _score + 1;
                 }
             } else if (handListDiamonds.Count > 4 && handListDiamonds.Any(n => n.Value == ValueEnum.Ace))
             {
                 if (checkStraightForRoyalFlush(handListDiamonds))
                 {
-                    return true;
+                    return _score + 1;
                 }
             } else if (handListSpades.Count > 4 && handListSpades.Any(n => n.Value == ValueEnum.Ace))
             {
                 if (checkStraightForRoyalFlush(handListSpades))
                 {
-                    return true;
+                    return _score + 1;
                 }
             }
 
-            return false;
+            return _score;
         }
 
         /*
@@ -72,7 +74,7 @@ namespace FirstPokerTry.Logics.Gameplay
             return suitEnum.ToString();
         }*/
 
-        public bool checkIfStraightFlushExists(IEnumerable<CardObject> hand)
+        public int checkIfStraightFlushExists(IEnumerable<CardObject> hand)
         {
             var handListHearts = hand.Where(o => o.Suit == SuitEnum.Hearts);
             var handListClubs = hand.Where(o => o.Suit == SuitEnum.Clubs);
@@ -93,63 +95,63 @@ namespace FirstPokerTry.Logics.Gameplay
             {
                 if (checkStraightForFlush(handListHearts))
                 {
-                    return true;
+                    return _score + 1;
                 }             
             } else if (handListClubs.Count() > 4)
             {
                 if (checkStraightForFlush(handListClubs))
                 {
-                    return true;
+                    return _score + 1;
                 }               
             } else if (handListDiamonds.Count() > 4)
             {
                 if (checkStraightForFlush(handListDiamonds))
                 {
-                    return true;
+                    return _score + 1;
                 }              
                 
             } else if (handListSpades.Count() > 4)
             {
                 if (checkStraightForFlush(handListSpades))
                 {
-                    return true;
+                    return _score + 1;
                 }
             }
-            return false;
+            return _score;
         }
 
-        public bool checkifFourOfAKindExists(IEnumerable<CardObject> hand)
+        public int checkifFourOfAKindExists(IEnumerable<CardObject> hand)
         {
             if (hand.GroupBy(c => c.rank)
             .Where(g => g.Count() == 4)
             .Count() == 1)
             {
-                return true;
+                return _score + 1;
             }
 
-            return false;
+            return _score;
         }
-
-        public bool checkIfFullHouseExists(IEnumerable<CardObject> hand)
+        
+        public int checkIfFullHouseExists(IEnumerable<CardObject> hand)
         {
-            if (checkIfPairExists(hand) && checkifThreeOfAKindExists(hand))
+            if (checkIfPairExists(hand) == 1 && checkifThreeOfAKindExists(hand) == 1)
             {
-                return true;
+                return _score + 1;
             }
-
-            return false;
+            
+            return _score;
         }
 
-        public bool checkIfFlushExists(IEnumerable<CardObject> hand)
+        public int checkIfFlushExists(IEnumerable<CardObject> hand)
         {
             if (hand.GroupBy(c => c.Suit)
                 .Where(g => g.Count() == 5)
                 .Count() == 1)
             {
-                return true;
+                return _score + 1;
             }
 
-            return false;
+            return _score;
         }
 
         public bool checkStraightForRoyalFlush(IEnumerable<CardObject> hand)
@@ -174,7 +176,7 @@ namespace FirstPokerTry.Logics.Gameplay
             return checkStraightWithMoreThan5OfSuit(hand, out handList);
         }
 
-        private static bool checkStraightWithMoreThan5OfSuit(IEnumerable<CardObject> hand, out List<CardObject> handList)
+        private bool checkStraightWithMoreThan5OfSuit(IEnumerable<CardObject> hand, out List<CardObject> handList)
         {
             handList = hand.OrderBy(c => c.rank).ToList();
 
@@ -206,7 +208,7 @@ namespace FirstPokerTry.Logics.Gameplay
             return false;
         }
 
-        public bool checkIfStraighExists(IEnumerable<CardObject> hand) 
+        public int checkIfStraighExists(IEnumerable<CardObject> hand) 
         {
             var handList = hand.OrderBy(c => c.rank).ToList();
 
@@ -220,49 +222,49 @@ namespace FirstPokerTry.Logics.Gameplay
 
             handList = hand.OrderBy(c => c.rank).ToList();
             
-            return handList[6].rank - handList[2].rank == 4 ? true :
-                handList[5].rank - handList[1].rank == 4 ? true :
-                    handList[4].rank - handList[0].rank == 4 ? true :
-                        false;
+            return handList[6].rank - handList[2].rank == 4 ? _score + 1 :
+                handList[5].rank - handList[1].rank == 4 ? _score +1 :
+                    handList[4].rank - handList[0].rank == 4 ? _score + 1 :
+                        _score;
         }
 
-        public bool checkifThreeOfAKindExists (IEnumerable<CardObject> hand)
+        public int checkifThreeOfAKindExists (IEnumerable<CardObject> hand)
         {
             if (hand.GroupBy(c => c.rank)
                 .Where(g => g.Count() == 3)
                 .Count() == 1)
             {
-                return true;
+                return _score + 1; ;
             }
 
-            return false;
+            return _score;
         }
 
-        public bool checkIfTwoPairsExists(IEnumerable<CardObject> hand)
+        public int checkIfTwoPairsExists(IEnumerable<CardObject> hand)
         {
             if (hand.GroupBy(c => c.rank) 
                        .Where(g => g.Count() == 2)
                        .Count() == 2)
             {
-                return true;
+                return _score + 1;
             }
-            return false;
+            return _score;
         }
 
-        public bool checkIfPairExists (IEnumerable<CardObject> hand)
+        public int checkIfPairExists (IEnumerable<CardObject> hand)
         {
 
             var grouped = hand.GroupBy(c => c.rank);
             var filtered = grouped.Where(grouped => grouped.Count() == 2);
             var count = filtered.Count();
             if (count == 1) {
-                return true;
+                return _score + 1;
             }
 
-            return false;
+            return _score;
                        
         }
-
+        /*
         //Burde denne droppes her? 
         public bool checkIfHighestValue (List<CardObject> hand)
         {
@@ -272,6 +274,6 @@ namespace FirstPokerTry.Logics.Gameplay
             }
 
             return true;
-        }
+        }*/
     }
 }
