@@ -31,26 +31,26 @@ namespace FirstPokerTry.Logics.Gameplay
                
                 if(checkStraightForRoyalFlush(handListHearts))
                 {
-                    return _score + 1;
+                    return _score + 9;
                 }
 
             } else if (handListClubs.Count > 4 && handListClubs.Any(n => n.Value == ValueEnum.Ace))
             {
                 if (checkStraightForRoyalFlush(handListClubs))
                 {
-                    return _score + 1;
+                    return _score + 9;
                 }
             } else if (handListDiamonds.Count > 4 && handListDiamonds.Any(n => n.Value == ValueEnum.Ace))
             {
                 if (checkStraightForRoyalFlush(handListDiamonds))
                 {
-                    return _score + 1;
+                    return _score + 9;
                 }
             } else if (handListSpades.Count > 4 && handListSpades.Any(n => n.Value == ValueEnum.Ace))
             {
                 if (checkStraightForRoyalFlush(handListSpades))
                 {
-                    return _score + 1;
+                    return _score + 9;
                 }
             }
 
@@ -95,26 +95,26 @@ namespace FirstPokerTry.Logics.Gameplay
             {
                 if (checkStraightForFlush(handListHearts))
                 {
-                    return _score + 1;
+                    return _score + 8;
                 }             
             } else if (handListClubs.Count() > 4)
             {
                 if (checkStraightForFlush(handListClubs))
                 {
-                    return _score + 1;
+                    return _score + 8;
                 }               
             } else if (handListDiamonds.Count() > 4)
             {
                 if (checkStraightForFlush(handListDiamonds))
                 {
-                    return _score + 1;
+                    return _score + 8;
                 }              
                 
             } else if (handListSpades.Count() > 4)
             {
                 if (checkStraightForFlush(handListSpades))
                 {
-                    return _score + 1;
+                    return _score + 8;
                 }
             }
             return _score;
@@ -126,7 +126,7 @@ namespace FirstPokerTry.Logics.Gameplay
             .Where(g => g.Count() == 4)
             .Count() == 1)
             {
-                return _score + 1;
+                return _score + 7;
             }
 
             return _score;
@@ -134,9 +134,9 @@ namespace FirstPokerTry.Logics.Gameplay
         
         public int checkIfFullHouseExists(IEnumerable<CardObject> hand)
         {
-            if (checkIfPairExists(hand) == 1 && checkifThreeOfAKindExists(hand) == 1)
+            if (checkIfPairExists(hand) == 1 && checkifThreeOfAKindExists(hand) == 3)
             {
-                return _score + 1;
+                return _score + 6;
             }
             
             return _score;
@@ -148,7 +148,7 @@ namespace FirstPokerTry.Logics.Gameplay
                 .Where(g => g.Count() == 5)
                 .Count() == 1)
             {
-                return _score + 1;
+                return _score + 5;
             }
 
             return _score;
@@ -222,9 +222,9 @@ namespace FirstPokerTry.Logics.Gameplay
 
             handList = hand.OrderBy(c => c.rank).ToList();
             
-            return handList[6].rank - handList[2].rank == 4 ? _score + 1 :
-                handList[5].rank - handList[1].rank == 4 ? _score +1 :
-                    handList[4].rank - handList[0].rank == 4 ? _score + 1 :
+            return handList[6].rank - handList[2].rank == 4 ? _score + 4 :
+                handList[5].rank - handList[1].rank == 4 ? _score + 4 :
+                    handList[4].rank - handList[0].rank == 4 ? _score + 4 :
                         _score;
         }
 
@@ -234,7 +234,7 @@ namespace FirstPokerTry.Logics.Gameplay
                 .Where(g => g.Count() == 3)
                 .Count() == 1)
             {
-                return _score + 1; ;
+                return _score + 3; ;
             }
 
             return _score;
@@ -246,7 +246,7 @@ namespace FirstPokerTry.Logics.Gameplay
                        .Where(g => g.Count() == 2)
                        .Count() == 2)
             {
-                return _score + 1;
+                return _score + 2;
             }
             return _score;
         }
@@ -275,5 +275,38 @@ namespace FirstPokerTry.Logics.Gameplay
 
             return true;
         }*/
+
+        public int[] getPoints()
+        {   
+            var cardDealer = new CardDealer();           
+            int scorePlayer1 = 0;
+            int scorePlayer2 = 0;
+
+            scorePlayer1 = checkIfPairExists(cardDealer.getCardsPlayer1())
+                + checkIfTwoPairsExists(cardDealer.getCardsPlayer1())
+                + checkifThreeOfAKindExists(cardDealer.getCardsPlayer1())
+                + checkIfStraighExists(cardDealer.getCardsPlayer1())
+                + checkIfFlushExists(cardDealer.getCardsPlayer1())
+                + checkIfFullHouseExists(cardDealer.getCardsPlayer1())
+                + checkifFourOfAKindExists(cardDealer.getCardsPlayer1())
+                + checkIfStraightFlushExists(cardDealer.getCardsPlayer1())
+                + checkIfRoyalFlushExits(cardDealer.getCardsPlayer1());
+                
+            scorePlayer2 = checkIfPairExists(cardDealer.getCardsPlayer2())
+                + checkIfTwoPairsExists(cardDealer.getCardsPlayer2())
+                + checkifThreeOfAKindExists(cardDealer.getCardsPlayer2())
+                + checkIfStraighExists(cardDealer.getCardsPlayer2())
+                + checkIfFlushExists(cardDealer.getCardsPlayer2())
+                + checkIfFullHouseExists(cardDealer.getCardsPlayer2())
+                + checkifFourOfAKindExists(cardDealer.getCardsPlayer2())
+                + checkIfStraightFlushExists(cardDealer.getCardsPlayer2())
+                + checkIfRoyalFlushExits(cardDealer.getCardsPlayer2());
+
+            int[] scoreArray = new int[] {scorePlayer1, scorePlayer2};
+
+            return scoreArray;
+        }
+
+        
     }
 }

@@ -39,7 +39,7 @@ public class HandCheckerTest
             new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Hearts, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Ace, rank = 13}
         };
 
-        int result1 = 1;
+        int result1 = 9;
         int result2 = 0;
 
         var handChecker = new HandChecker();
@@ -79,7 +79,7 @@ public class HandCheckerTest
             new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Spades, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Ace, rank = 13}
         };
 
-        int result1 = 1;
+        int result1 = 8;
         int result2 = 0;
 
         var handChecker = new HandChecker();
@@ -118,7 +118,7 @@ public class HandCheckerTest
             new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Hearts, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Ace, rank = 13}
         };
 
-        int result1 = 1;
+        int result1 = 7;
         int result2 = 0;
 
         var handChecker = new HandChecker();
@@ -157,7 +157,7 @@ public class HandCheckerTest
             new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Hearts, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Ace, rank = 13}
         };
 
-        int result1 = 1;
+        int result1 = 6;
         int result2 = 0;
 
         var handChecker = new HandChecker();
@@ -196,7 +196,7 @@ public class HandCheckerTest
             new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Hearts, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Ace, rank = 13}
         };
 
-        int result1 = 1;
+        int result1 = 5;
         int result2 = 0;
 
         var handChecker = new HandChecker();
@@ -236,7 +236,7 @@ public class HandCheckerTest
             new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Hearts, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Ace, rank = 13}
         };
 
-        int result1 = 1;
+        int result1 = 4;
         int result2 = 0;
 
         var handChecker = new HandChecker();
@@ -274,7 +274,7 @@ public class HandCheckerTest
             new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Hearts, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Jack, rank = 10 }
         };
 
-        int result1 = 1;
+        int result1 = 3;
         int result2 = 0;
 
         var handChecker = new HandChecker();
@@ -314,7 +314,7 @@ public class HandCheckerTest
             new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Hearts, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Jack, rank = 10 }
         };
 
-        int result1 = 1;
+        int result1 = 2;
         int result2 = 0;
 
         var handChecker = new HandChecker();
