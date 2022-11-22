@@ -13,13 +13,14 @@ namespace FirstPokerTry.Logics.Gameplay
         public bool Player1Turn;
         public bool Player2Turn;
 
-        public TheGame(int Pot, int Player1Pot, int Player1Bet, int Player2Pot, int Player2Bet)
+
+        public TheGame(int pot, int player1Pot, int player1Bet, int player2Pot, int player2Bet)
         {
-            _pot = Pot;
-            _player1Pot = Player1Pot;
-            _player1Bet = Player1Bet;
-            _player2Pot = Player2Pot;
-            _player2Bet = Player2Bet;
+            _pot = pot;
+            _player1Pot = player1Pot;
+            _player1Bet = player1Bet;
+            _player2Pot = player2Pot;
+            _player2Bet = player2Bet;
         }
 
         private int _pot { get; set; }

@@ -108,7 +108,7 @@ namespace FirstPokerTry.UI
             Console.WriteLine("How much would you like to bet?");
             Console.WriteLine("Press 1 to bet 10, 2 to bet 20, 3 to bet 30, 4 to bet 40, 5 to bet 50,");
             Console.WriteLine("6 to bet 60, 7 to bet 70, 8 to bet 80, 9 to bet 90, or 0 to bet 100.");
-            ReadBetInput();
+          //  ReadBetInput();
         }
 
         public int ReadBetInput()
@@ -139,7 +139,6 @@ namespace FirstPokerTry.UI
                     return 100;
                 default:
                     Console.WriteLine("");
-                    Console.ReadKey();
                     Console.WriteLine("Invalid input");
                     return ReadBetInput();
             }
