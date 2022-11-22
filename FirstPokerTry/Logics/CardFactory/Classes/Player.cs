@@ -17,7 +17,7 @@ namespace FirstPokerTry.Logics.CardFactory.Classes
 
         #endregion
 
-        public Player(int id, string name, Hand hand)
+        public Player(int id, string name, List<CardObject> hand)
         {
             Id = id;
             Name = name;

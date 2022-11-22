@@ -1,6 +1,0 @@
-#nullable disable
-
-using FirstPokerTry.Logics.CardFactory.Classes;
-using FirstPokerTry.Logics.CardFactory.Contexts;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
