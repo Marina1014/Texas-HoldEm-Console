@@ -49,27 +49,37 @@ namespace FirstPokerTry.Logics.Gameplay
 
             var cardsOnTable = cardDealer.DealFirstThreeCards(cardDeck); //Legger kort på bordet
             gameDisplay.PrintCardsOnTable(cardsOnTable); // Skriver ut hvilke kort som ligger på bordet
-            /*
-            //så kan runden begynne
-            Player1Turn = true;
-            while(Player1Turn == true)
-            {
-                GameDisplay.PrintPlayersTurn(1);
-                if (GameDisplay.PrintPlayersTurn(1) == true)
-                {
-                    gameDisplay.PrintBetMenu();
-                    _player1Bet = gameDisplay.Bet;
-                    _player1Pot = _player1Pot - _player1Bet;
-                    _pot = _pot + _player1Bet;
-                    Player1Turn = false;
-                }
-                else
-                {
-                    Player1Turn = false;
-                }*/
-                //nå kommer det godsaker
 
-            //}
+            // First betting round
+            BettingRound(gameDisplay);
+
+            // Draw 4th card
+            cardDealer.DealNextCard(cardDeck);
+            gameDisplay.PrintCardsOnTable(cardsOnTable);
+
+            // Second betting round
+            BettingRound(gameDisplay);
+
+            // Draw 5th card
+            cardDealer.DealNextCard(cardDeck);
+            gameDisplay.PrintCardsOnTable(cardsOnTable);
+        }
+
+        public void BettingRound(GameDisplay gameDisplay)
+        {
+            gameDisplay.PrintPlayersTurn(1);
+            gameDisplay.PrintBetMenu();
+            _player1Bet = gameDisplay.ReadBetInput();
+            _player1Pot -= _player1Bet;
+            _pot += _player1Bet;
+            gameDisplay.PrintPotStatus(_pot, _player1Pot, _player1Pot);
+
+            gameDisplay.PrintPlayersTurn(2);
+            gameDisplay.PrintBetMenu();
+            _player2Bet = gameDisplay.ReadBetInput();
+            _player2Pot -= _player2Bet;
+            _pot += _player2Bet;
+            gameDisplay.PrintPotStatus(_pot, _player1Pot, _player1Pot);
         }
     }
 }
