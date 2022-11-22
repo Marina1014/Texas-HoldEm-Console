@@ -9,11 +9,7 @@ namespace FirstPokerTry.Logics.Gameplay
 {
     public class TheGame
     {
-        private int _pot { get; set; }
-        private int _player1Pot { get; set; }
-        private int _player1Bet { get; set; }
-        private int _player2Pot { get; set; }
-        private int _player2Bet { get; set; }
+      
         public bool Player1Turn;
         public bool Player2Turn;
 
@@ -25,6 +21,12 @@ namespace FirstPokerTry.Logics.Gameplay
             _player2Pot = Player2Pot;
             _player2Bet = Player2Bet;
         }
+
+        private int _pot { get; set; }
+        private int _player1Pot { get; set; }
+        private int _player1Bet { get; set; }
+        private int _player2Pot { get; set; }
+        private int _player2Bet { get; set; }
 
         public void PlayGame()
         {
@@ -45,32 +47,40 @@ namespace FirstPokerTry.Logics.Gameplay
             player1Hand = cardDealer.DealPlayer1Hand(cardDeck); //Gir kort til spiller 1
             player2Hand = cardDealer.DealPlayer2Hand(cardDeck); //Gir kort til spiller 2
 
-            gameDisplay.PrintDealtCards(player1Hand, player2Hand); //Skriver ut kortene som er delt ut, bør ha "se bort" eller lignende
+            gameDisplay.PrintDealtCards(player1Hand, player2Hand);
 
-            var cardsOnTable = cardDealer.DealFirstThreeCards(cardDeck); //Legger kort på bordet
-            gameDisplay.PrintCardsOnTable(cardsOnTable); // Skriver ut hvilke kort som ligger på bordet
-            /*
-            //så kan runden begynne
-            Player1Turn = true;
-            while(Player1Turn == true)
-            {
-                GameDisplay.PrintPlayersTurn(1);
-                if (GameDisplay.PrintPlayersTurn(1) == true)
-                {
-                    gameDisplay.PrintBetMenu();
-                    _player1Bet = gameDisplay.Bet;
-                    _player1Pot = _player1Pot - _player1Bet;
-                    _pot = _pot + _player1Bet;
-                    Player1Turn = false;
-                }
-                else
-                {
-                    Player1Turn = false;
-                }*/
-                //nå kommer det godsaker
+            gameDisplay.cardsOnTable = cardDealer.DealFirstThreeCards(cardDeck);
+            gameDisplay.PrintCardsOnTable();
 
-            //}
+            // First betting round
+            BettingRound(gameDisplay);
+
+            // Draw 4th card
+            cardDealer.DealNextCard(cardDeck);
+            gameDisplay.PrintCardsOnTable();
+
+            // Second betting round
+            BettingRound(gameDisplay);
+
+            // Draw 5th card
+            cardDealer.DealNextCard(cardDeck);
+            gameDisplay.PrintCardsOnTable();
+
+        }
+
+        public void BettingRound(GameDisplay gameDisplay)
+        {
+            gameDisplay.PrintPlayersTurn(1);
+            gameDisplay.PrintBetMenu();
+            _player1Bet = gameDisplay.ReadBetInput();
+            _player1Pot -= _player1Bet;
+            _pot += _player1Bet;
+
+            gameDisplay.PrintPlayersTurn(2);
+            gameDisplay.PrintBetMenu();
+            _player2Bet = gameDisplay.ReadBetInput();
+            _player2Pot -= _player2Bet;
+            _pot += _player2Bet;
         }
     }
 }
-

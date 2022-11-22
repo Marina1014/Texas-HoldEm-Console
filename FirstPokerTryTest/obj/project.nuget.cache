@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "gOHU/NED+SgT9cOSjjqYYuPVhLoa3SVI5CtjzuWSP9KnGBhlYaOqFsZCnBBe81Ktp0I3ssVBkCzzCY5TLel1/g==",
-  "success": false,
+  "dgSpecHash": "cxIjgK/Tlf6xN08zSjl/N2Cv+iNLMfl+WmpKjyVKfh650t1B9mlNn1yGihghpOs80IiKOcUpwFv/skEmcUXgJQ==",
+  "success": true,
   "projectFilePath": "/Users/taravinje/HK/3.Semester/Texas-HoldEm-Console/FirstPokerTryTest/FirstPokerTryTest.csproj",
   "expectedPackageFiles": [
     "/Users/taravinje/.nuget/packages/bca.nuget/0.2.0/bca.nuget.0.2.0.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/bca.spdx/0.1.1/bca.spdx.0.1.1.nupkg.sha512",
-    "/Users/taravinje/.nuget/packages/coverlet.collector/3.1.2/coverlet.collector.3.1.2.nupkg.sha512",
+    "/Users/taravinje/.nuget/packages/coverlet.collector/3.2.0/coverlet.collector.3.2.0.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/dryioc.dll/5.2.2/dryioc.dll.5.2.2.nupkg.sha512",
-    "/Users/taravinje/.nuget/packages/microsoft.codecoverage/17.3.2/microsoft.codecoverage.17.3.2.nupkg.sha512",
+    "/Users/taravinje/.nuget/packages/microsoft.codecoverage/17.4.0/microsoft.codecoverage.17.4.0.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/microsoft.data.sqlite.core/6.0.11/microsoft.data.sqlite.core.6.0.11.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/microsoft.entityframeworkcore/7.0.0/microsoft.entityframeworkcore.7.0.0.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.0/microsoft.entityframeworkcore.abstractions.7.0.0.nupkg.sha512",
@@ -26,16 +26,16 @@
     "/Users/taravinje/.nuget/packages/microsoft.extensions.logging.abstractions/7.0.0/microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/microsoft.extensions.options/7.0.0/microsoft.extensions.options.7.0.0.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
-    "/Users/taravinje/.nuget/packages/microsoft.net.test.sdk/17.3.2/microsoft.net.test.sdk.17.3.2.nupkg.sha512",
+    "/Users/taravinje/.nuget/packages/microsoft.net.test.sdk/17.4.0/microsoft.net.test.sdk.17.4.0.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "/Users/taravinje/.nuget/packages/microsoft.testplatform.objectmodel/17.3.2/microsoft.testplatform.objectmodel.17.3.2.nupkg.sha512",
-    "/Users/taravinje/.nuget/packages/microsoft.testplatform.testhost/17.3.2/microsoft.testplatform.testhost.17.3.2.nupkg.sha512",
+    "/Users/taravinje/.nuget/packages/microsoft.testplatform.objectmodel/17.4.0/microsoft.testplatform.objectmodel.17.4.0.nupkg.sha512",
+    "/Users/taravinje/.nuget/packages/microsoft.testplatform.testhost/17.4.0/microsoft.testplatform.testhost.17.4.0.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/netstandard.library/2.0.0/netstandard.library.2.0.0.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/nuget.frameworks/5.11.0/nuget.frameworks.5.11.0.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/nunit/3.13.3/nunit.3.13.3.nupkg.sha512",
-    "/Users/taravinje/.nuget/packages/nunit.analyzers/3.3.0/nunit.analyzers.3.3.0.nupkg.sha512",
-    "/Users/taravinje/.nuget/packages/nunit3testadapter/4.2.1/nunit3testadapter.4.2.1.nupkg.sha512",
+    "/Users/taravinje/.nuget/packages/nunit.analyzers/3.5.0/nunit.analyzers.3.5.0.nupkg.sha512",
+    "/Users/taravinje/.nuget/packages/nunit3testadapter/4.3.0/nunit3testadapter.4.3.0.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.0.6/sqlitepclraw.bundle_e_sqlite3.2.0.6.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/sqlitepclraw.core/2.0.6/sqlitepclraw.core.2.0.6.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.0.6/sqlitepclraw.lib.e_sqlite3.2.0.6.nupkg.sha512",
@@ -47,15 +47,5 @@
     "/Users/taravinje/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
     "/Users/taravinje/.nuget/packages/system.text.json/6.0.0/system.text.json.6.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Detected package downgrade: NUnit3TestAdapter from 4.3.0 to 4.2.1. Reference the package directly from the project to select a different version. \n FirstPokerTryTest -> FirstPokerTry -> NUnit3TestAdapter (>= 4.3.0) \n FirstPokerTryTest -> NUnit3TestAdapter (>= 4.2.1)",
-      "libraryId": "NUnit3TestAdapter",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  "logs": []
 }

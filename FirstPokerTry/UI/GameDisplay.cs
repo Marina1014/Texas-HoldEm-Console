@@ -1,8 +1,8 @@
 ﻿using System;
 using DryIoc.ImTools;
 using FirstPokerTry.Logics.Objects;
-//using FirstPokerTry.Logics.CardFactory.Classes;
-//using FirstPokerTry.Logics.Gameplay;
+using FirstPokerTry.Logics.CardFactory.Classes;
+using FirstPokerTry.Logics.Gameplay;
 
 namespace FirstPokerTry.UI
 {
@@ -10,7 +10,7 @@ namespace FirstPokerTry.UI
     {
 
         private int _pot;
-        private string _cardsOnTable;
+        public List<CardObject> cardsOnTable { get; set; }
         private int _playerNumber;
 
         private int _player1Pot;
@@ -29,6 +29,7 @@ namespace FirstPokerTry.UI
             _player2Pot = Player2Pot;
             _player2Bet = Player2Bet;
         }
+
         public void PrintInitialGameMenu()
         {
             Console.WriteLine("Welcome to Texas Hold'em Poker!");
@@ -39,76 +40,69 @@ namespace FirstPokerTry.UI
             Console.ReadKey();
             Console.Clear();
         }
-        public void PrintPlayerHand(int playerNumber, List<CardObject> playerHand)
-        {
-            Console.WriteLine("Player " + playerNumber + " has been dealt:");
-            foreach (CardObject card in playerHand)
-            {
-                Console.WriteLine($"{card.Suit} {card.Value}");
-            }
-            Console.WriteLine("Press any key to continue.");
-            Console.ReadKey();
-        }
+
         public void PrintDealtCards(List<CardObject> player1Hand, List<CardObject> player2Hand)
         {
-            Console.WriteLine("Dealing cards, look away player 2!");
-            Console.WriteLine("Press any key when you're ready.");
+            Console.WriteLine("Player 1 has been dealt " + String.Join(", ", player1Hand));
+            Console.WriteLine("Player 2 has been dealt " + String.Join(", ", player2Hand));
+            Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
-            PrintPlayerHand(1, player1Hand);
-            Console.Clear();
-
-            Console.WriteLine("Dealing cards, look away player 1!");
-            Console.WriteLine("Press any key when your're ready.");
-            Console.ReadKey();
-            PrintPlayerHand(2, player2Hand);
             Console.Clear();
         }
-        public void PrintCardsOnTable(List<CardObject> cardsOnTable)
+
+        /*  public void PrintPlayerHand(int playerNumber, List<CardObject> playerHand)
+          {
+              Console.WriteLine("Player " + playerNumber + " has been dealt:");
+              foreach (CardObject card in playerHand)
+              {
+                  Console.WriteLine($"{card.Suit} {card.Value}");
+              }
+              Console.WriteLine("Press any key to continue.");
+              Console.ReadKey();
+          }
+        */
+
+
+
+        public void PrintCardsOnTable()
         {
-            Console.WriteLine("The cards on the table are:");
+            Console.WriteLine("The cards on the table are " + cardsOnTable);
             foreach (CardObject card in cardsOnTable)
             {
                 Console.WriteLine($"{card.Suit} {card.Value}");
             }
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
+            Console.Clear();
         }
-        /*public bool PrintPlayersTurn(int playerNumber)
+
+
+        public bool PrintPlayersTurn(int playerNumber)
         {
             bool bet;
             Console.WriteLine("Player " + playerNumber + "'s turn.");
             Console.WriteLine("Would you like to bet (b) or fold (f)?");
-            Console.ReadKey();
 
             var input = Console.ReadKey();
-            
+
             while (input.Key != ConsoleKey.B && input.Key != ConsoleKey.F)
             {
                 Console.WriteLine("Please enter a valid input.");
-                
             }
-            
+
             while (true)
             {
                 if (input.Key == ConsoleKey.B)
                 {
-                    bet = true;
-                    break;
+                    return true;
                 }
                 else if (input.Key == ConsoleKey.F)
                 {
-                    bet = false;
-                    break;
+                    return false;
                 }
             }
-        }*/
-
-        public void PrintPlayerFolded(int playerNumber)
-        {
-            Console.WriteLine("Player " + playerNumber + " has folded.");
-            Console.WriteLine("Press any key to continue.");
-            Console.ReadKey();
         }
+
         public void PrintBetMenu()
         {
             Console.WriteLine("How much would you like to bet?");
@@ -116,46 +110,77 @@ namespace FirstPokerTry.UI
             Console.WriteLine("6 to bet 60, 7 to bet 70, 8 to bet 80, 9 to bet 90, or 0 to bet 100.");
             ReadBetInput();
         }
+
         public int ReadBetInput()
         {
-            int bet = 0;
-            return Console.ReadKey().Key == ConsoleKey.D1 ? bet = 10 :
-            Console.ReadKey().Key == ConsoleKey.D2 ? bet = 20 :
-            Console.ReadKey().Key == ConsoleKey.D3 ? bet = 30 :
-            Console.ReadKey().Key == ConsoleKey.D4 ? bet = 40 :
-            Console.ReadKey().Key == ConsoleKey.D5 ? bet = 50 :
-            Console.ReadKey().Key == ConsoleKey.D6 ? bet = 60 :
-            Console.ReadKey().Key == ConsoleKey.D7 ? bet = 70 :
-            Console.ReadKey().Key == ConsoleKey.D8 ? bet = 80 :
-            Console.ReadKey().Key == ConsoleKey.D9 ? bet = 90 :
-            Console.ReadKey().Key == ConsoleKey.D0 ? bet = 100 :
-            bet = 0;
+            var input = Console.ReadKey();
+
+            switch (input.Key)
+            {
+                case ConsoleKey.D1:
+                    return 10;
+                case ConsoleKey.D2:
+                    return 20;
+                case ConsoleKey.D3:
+                    return 30;
+                case ConsoleKey.D4:
+                    return 40;
+                case ConsoleKey.D5:
+                    return 50;
+                case ConsoleKey.D6:
+                    return 60;
+                case ConsoleKey.D7:
+                    return 70;
+                case ConsoleKey.D8:
+                    return 80;
+                case ConsoleKey.D9:
+                    return 90;
+                case ConsoleKey.D0:
+                    return 100;
+                default:
+                    Console.WriteLine("");
+                    Console.ReadKey();
+                    Console.WriteLine("Invalid input");
+                    return ReadBetInput();
+            }
         }
-        public void PrintPlayersBet(int playerNumber, int bet)
+
+       /* public void PrintPlayerFolded(int playerNumber)
+        {
+            Console.WriteLine("Player " + playerNumber + " has folded.");
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
+        }
+       */
+
+      /*  public void PrintPlayersBet(int playerNumber, int bet)
         {
             Console.WriteLine("Player " + playerNumber + " has bet " + bet);
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
             Console.Clear();
         }
-        public void PrintPotStatus()
+
+        public void PrintPotStatus(int _pot, int _player1Pot, int _player2Pot)
         {
             Console.WriteLine("Pot: " + _pot);
             Console.WriteLine("Player 1 Pot: " + _player1Pot);
             Console.WriteLine("Player 2 Pot: " + _player2Pot);
         }
+
         public void PrintWinner(int playerNumber)
         {
             Console.WriteLine("Player " + playerNumber + " has won the game!");
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
         }
+
         public void PrintDraw()
         {
             Console.WriteLine("The game has ended in a draw!");
             Console.WriteLine("Press any key to close.");
             Console.ReadKey();
         }
+      */
     }
 }
-
