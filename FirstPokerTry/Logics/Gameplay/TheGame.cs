@@ -87,18 +87,30 @@ namespace FirstPokerTry.Logics.Gameplay
 
         public void BettingRound(GameDisplay gameDisplay)
         {
+            var player1Pot = new Player().Pot;
+            player1Pot = _player1Pot;
+            var player1Bet = new Player().Bet;
+            player1Bet = _player1Bet;
+
+            var player2Pot = new Player().Pot;
+            player2Pot = _player2Pot;
+            var player2Bet = new Player().Bet;
+            player2Bet = _player2Bet;
+
             gameDisplay.PrintPlayersTurn(1);
             gameDisplay.PrintBetMenu();
-            var player1Bet = gameDisplay.ReadBetInput();
-            gameDisplay.Player1Pot -= player1Bet;
-            gameDisplay.Pot += player1Bet;
+
+            player1Bet = gameDisplay.ReadBetInput();
+            player1Pot -= player1Bet;
+            _pot += player1Bet;
+            gameDisplay.PrintPotStatus(_pot, player1Pot, player2Pot);
 
             gameDisplay.PrintPlayersTurn(2);
             gameDisplay.PrintBetMenu();
-            var player2Bet = gameDisplay.ReadBetInput();
-            gameDisplay.Player2Pot -= player2Bet;
-            gameDisplay.Pot += player2Bet;
-
+            player2Bet = gameDisplay.ReadBetInput();
+            player2Pot -= player2Bet;
+            _pot += player2Bet;
+            gameDisplay.PrintPotStatus(_pot, player1Pot, player2Pot);
         }
     }
 }

@@ -13,6 +13,8 @@ namespace FirstPokerTry.Logics.CardFactory.Classes
         public int Id { get; set; }
         public string Name { get; set; }
         public List<CardObject> Hand { get; set; }
+        public int Pot { get; set; }
+        public int Bet { get; set; }
         private PlayerObject PlayerObject { get; set; }
 
         #endregion

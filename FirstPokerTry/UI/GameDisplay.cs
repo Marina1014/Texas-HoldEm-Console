@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using DryIoc.ImTools;
 using FirstPokerTry.Logics.Objects;
 //using FirstPokerTry.Logics.CardFactory.Classes;
@@ -41,18 +41,38 @@ namespace FirstPokerTry.UI
             Console.Clear();
         }
 
-        public void PrintDealtCards(List<CardObject> player1Hand, List<CardObject> player2Hand)
+
+        public void PrintPlayerHand(int playerNumber, List<CardObject> playerHand)
         {
-            Console.WriteLine("Player 1 has been dealt " + String.Join(", ", player1Hand));
-            Console.WriteLine("Player 2 has been dealt " + String.Join(", ", player2Hand));
+            Console.WriteLine("");
+            Console.WriteLine("Player " + playerNumber + " has been dealt:");
+            foreach (CardObject card in playerHand)
+            {
+                Console.WriteLine($"{card.Suit} {card.Value}");
+            }
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
+        }
+        
+        public void PrintDealtCards(List<CardObject> player1Hand, List<CardObject> player2Hand)
+        {
+            Console.WriteLine("Dealing cards, look away player 2!");
+            Console.WriteLine("Press any key when you're ready.");
+            Console.ReadKey();
+            PrintPlayerHand(1, player1Hand);
+            Console.Clear();
+
+            Console.WriteLine("Dealing cards, look away player 1!");
+            Console.WriteLine("Press any key when your're ready.");
+            Console.ReadKey();
+            PrintPlayerHand(2, player2Hand);
             Console.Clear();
         }
 
         public void PrintCardsOnTable()
         {
-            Console.WriteLine("The cards on the table are: ");
+            Console.WriteLine("");
+            Console.WriteLine("The cards on the table are:");
             foreach (CardObject card in cardsOnTable)
             {
                 Console.WriteLine($"{card.Suit} {card.Value}");

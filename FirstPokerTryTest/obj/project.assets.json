@@ -2241,19 +2241,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/taravinje/.nuget/packages/": {}
+    "/Users/carolinevannebo/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/taravinje/HK/3.Semester/Texas-HoldEm-Console/FirstPokerTryTest/FirstPokerTryTest.csproj",
+      "projectUniqueName": "/Users/carolinevannebo/Desktop/IT/3-semester/SoftwareDesign/FirstPokerTry/FirstPokerTryTest/FirstPokerTryTest.csproj",
       "projectName": "FirstPokerTryTest",
-      "projectPath": "/Users/taravinje/HK/3.Semester/Texas-HoldEm-Console/FirstPokerTryTest/FirstPokerTryTest.csproj",
-      "packagesPath": "/Users/taravinje/.nuget/packages/",
-      "outputPath": "/Users/taravinje/HK/3.Semester/Texas-HoldEm-Console/FirstPokerTryTest/obj/",
+      "projectPath": "/Users/carolinevannebo/Desktop/IT/3-semester/SoftwareDesign/FirstPokerTry/FirstPokerTryTest/FirstPokerTryTest.csproj",
+      "packagesPath": "/Users/carolinevannebo/.nuget/packages/",
+      "outputPath": "/Users/carolinevannebo/Desktop/IT/3-semester/SoftwareDesign/FirstPokerTry/FirstPokerTryTest/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/taravinje/.nuget/NuGet/NuGet.Config"
+        "/Users/carolinevannebo/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -2266,8 +2266,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/taravinje/HK/3.Semester/Texas-HoldEm-Console/FirstPokerTry/FirstPokerTry.csproj": {
-              "projectPath": "/Users/taravinje/HK/3.Semester/Texas-HoldEm-Console/FirstPokerTry/FirstPokerTry.csproj"
+            "/Users/carolinevannebo/Desktop/IT/3-semester/SoftwareDesign/FirstPokerTry/FirstPokerTry/FirstPokerTry.csproj": {
+              "projectPath": "/Users/carolinevannebo/Desktop/IT/3-semester/SoftwareDesign/FirstPokerTry/FirstPokerTry/FirstPokerTry.csproj"
             }
           }
         }
