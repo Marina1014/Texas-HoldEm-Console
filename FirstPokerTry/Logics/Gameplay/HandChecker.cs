@@ -276,6 +276,24 @@ namespace FirstPokerTry.Logics.Gameplay
             return true;
         }*/
 
+
+        public int CalculateHandScore(List<CardObject> cards)
+        {
+            return checkIfPairExists(cards)
+                   + checkIfTwoPairsExists(cards)
+                   + checkifThreeOfAKindExists(cards)
+                   + checkIfStraighExists(cards)
+                   + checkIfFlushExists(cards)
+                   + checkIfFullHouseExists(cards)
+                   + checkifFourOfAKindExists(cards)
+                   + checkIfStraightFlushExists(cards)
+                   + checkIfRoyalFlushExits(cards);
+        }
+
+
+
+        /*
+
         public int[] getPoints()
         {   
             var cardDealer = new CardDealer();           
@@ -306,7 +324,7 @@ namespace FirstPokerTry.Logics.Gameplay
 
             return scoreArray;
         }
+        */
 
-        
     }
 }

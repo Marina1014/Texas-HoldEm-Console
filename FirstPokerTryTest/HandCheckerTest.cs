@@ -366,45 +366,4 @@ public class HandCheckerTest
             Assert.That(result2, Is.EqualTo(expected2));
         });
     }
-
-    /*
-    [Test]
-    public void ShouldCheckIfHighestRank()
-    {
-        List<CardObject> hand1 = new()
-        {
-            new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Hearts, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Six, rank = 5 },
-            new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Clubs, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Two, rank = 1 },
-            new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Hearts, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Five, rank = 4 },
-            new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Diamonds, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Ace, rank = 13 },
-            new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Spades, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Eight, rank = 7 },
-            new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Diamonds, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Four, rank = 3 },
-            new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Hearts, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Jack, rank = 10}
-        };
-
-        List<CardObject> hand2 = new()
-        {
-            new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Hearts, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Ten, rank = 9 },
-            new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Clubs, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Three, rank = 2 },
-            new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Clubs, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Five, rank = 4 },
-            new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Diamonds, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Ace, rank = 13 },
-            new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Spades, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Jack, rank = 10 },
-            new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Diamonds, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Four, rank = 3 },
-            new CardObject { Suit = FirstPokerTry.Logics.CardFactory.Enumerations.SuitEnum.Hearts, Value = FirstPokerTry.Logics.CardFactory.Enumerations.ValueEnum.Jack, rank = 10}
-        };
-
-        bool result1 = false;
-        bool result2 = true;
-
-        var handChecker = new HandChecker();
-        bool expected1 = handChecker.checkIfHighestValue(hand1);
-        bool expected2 = handChecker.checkIfHighestValue(hand2);
-
-        Assert.Multiple(() =>
-        {
-            Assert.That(result1, Is.EqualTo(expected1));
-            Assert.That(result2, Is.EqualTo(expected2));
-        });
-
-    }*/
 }

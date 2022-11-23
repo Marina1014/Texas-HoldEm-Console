@@ -64,7 +64,24 @@ namespace FirstPokerTry.Logics.Gameplay
             cardDealer.DealNextCard(cardDeck);
             gameDisplay.PrintCardsOnTable();
 
-            gameDisplay.PrintPotStatus();
+            var winner = cardDealer.DetermineWinner();
+
+            switch (winner)
+            {
+                case "player1":
+                    gameDisplay.Player1Pot += gameDisplay.Pot;
+                    Console.WriteLine($"Player 1 won {gameDisplay.Pot}");
+                    break;
+                case "player2":
+                    gameDisplay.Player2Pot += gameDisplay.Pot;
+                    Console.WriteLine($"Player 2 won {gameDisplay.Pot}");
+                    break;
+                default:
+                    Console.WriteLine("Tie");
+                    break;
+
+
+            }
         }
 
 
