@@ -81,6 +81,7 @@ namespace FirstPokerTry.Logics.Gameplay
             var player2Bet = gameDisplay.ReadBetInput();
             gameDisplay.Player2Pot -= player2Bet;
             gameDisplay.Pot += player2Bet;
+
         }
     }
 }
