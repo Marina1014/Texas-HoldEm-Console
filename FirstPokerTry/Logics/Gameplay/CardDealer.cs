@@ -105,10 +105,10 @@ namespace FirstPokerTry.Logics.Gameplay
             if (player1Score > player2Score)
                 return "player1";
 
-            if (player1Score == player2Score)
-                return "tie";
+            if (player1Score < player2Score)
+                return "player1";
 
-            return "player2";
+            return "tie";
         }
 
         public List<CardObject> getCardsPlayer1()

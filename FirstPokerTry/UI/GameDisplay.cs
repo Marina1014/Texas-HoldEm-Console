@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using DryIoc.ImTools;
 using FirstPokerTry.Logics.Objects;
 //using FirstPokerTry.Logics.CardFactory.Classes;
@@ -119,7 +119,7 @@ namespace FirstPokerTry.UI
         }
 
         public int ReadBetInput()
-        {
+        {   //kan printbetmenu kalles på her?
             var input = Console.ReadKey();
 
             switch (input.Key)
@@ -151,6 +151,84 @@ namespace FirstPokerTry.UI
             }
         }
 
+        public int ValidateBetBasedOnPot(int bet, int playerPot, int playerNumber)
+        {
+            if (playerNumber == 1)
+            {
+                if (bet > playerPot)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("You don't have enough money to bet that much.");
+                    Console.WriteLine("");
+                    PrintBetMenu();
+                    return ValidateBetBasedOnPot(ReadBetInput(), playerPot, playerNumber);
+                }
+                else
+                {
+                    return bet;
+                }
+            }
+            else if (playerNumber == 2)
+            {
+                if (bet > playerPot)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("You don't have enough money to bet that much.");
+                    Console.WriteLine("");
+                    PrintBetMenu();
+                    return ValidateBetBasedOnPot(ReadBetInput(), playerPot, playerNumber);
+                }
+                else
+                {
+                    return bet;
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public int ValidateBetBasedOnMinimum(int bet, int otherBet, int playerNumber)
+        {
+            if (playerNumber == 1)
+            {
+                if (bet < otherBet)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("You must bet at least as much as the other player.");
+                    Console.WriteLine("");
+                    PrintBetMenu();
+                    return ValidateBetBasedOnMinimum(ReadBetInput(), otherBet, playerNumber);
+                }
+                else
+                {
+                    return bet;
+                }
+            }
+            else if (playerNumber == 2)
+            {
+                if (bet < otherBet)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("You must bet at least as much as the other player.");
+                    Console.WriteLine("");
+                    PrintBetMenu();
+                    return ValidateBetBasedOnMinimum(ReadBetInput(), otherBet, playerNumber);
+                }
+                else
+                {
+                    return bet;
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        
+
         public void PrintPlayerFolded(int playerNumber)
         {
             Console.WriteLine("Player " + playerNumber + " has folded.");
@@ -166,18 +244,21 @@ namespace FirstPokerTry.UI
             Console.Clear();
         }
 
-        public void PrintPotStatus(int _pot, int _player1Pot, int _player2Pot)
+        public void PrintPotStatus(int pot, int player1Pot, int player2Pot)
         {
-            Console.WriteLine("Pot: " + Pot);
-            Console.WriteLine("Player 1 Pot: " + Player1Pot);
-            Console.WriteLine("Player 2 Pot: " + Player2Pot);
+            Console.WriteLine("");
+            Console.WriteLine("Pot: " + pot);
+            Console.WriteLine("Player 1 Pot: " + player1Pot);
+            Console.WriteLine("Player 2 Pot: " + player2Pot);
         }
 
-        public void PrintWinner(int playerNumber)
+        public void PrintWinner(int playerNumber, int pot)
         {
             Console.WriteLine("Player " + playerNumber + " has won the game!");
-            Console.WriteLine("Press any key to continue.");
+            Console.WriteLine("The whole pot of " + pot + " is yours!");
+            Console.WriteLine("Press any key to close.");
             Console.ReadKey();
+            Console.Clear();
         }
     }
 }
