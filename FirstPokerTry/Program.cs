@@ -13,7 +13,7 @@ namespace FirstPokerTry
         {
             var game = new TheGame(0, 1000, 0, 1000, 0);
             game.PlayGame();
-            
+
             /*var cardDeck = JsonCardDeckFileReader.GetJsonCardDeck();
             var cardDeck1 = new DeckShuffle();
             var handChecker = new HandChecker();

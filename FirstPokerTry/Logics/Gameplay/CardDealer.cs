@@ -95,6 +95,22 @@ namespace FirstPokerTry.Logics.Gameplay
             return cardsOnTable;
         }
 
+        public string DetermineWinner()
+        {
+            var handChecker = new HandChecker();
+
+            var player1Score = handChecker.CalculateHandScore(this.cardsPlayer1);
+            var player2Score = handChecker.CalculateHandScore(this.cardsPlayer1);
+
+            if (player1Score > player2Score)
+                return "player1";
+
+            if (player1Score == player2Score)
+                return "tie";
+
+            return "player2";
+        }
+
         public List<CardObject> getCardsPlayer1()
         {         
             return cardsPlayer1;

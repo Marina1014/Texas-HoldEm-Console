@@ -34,7 +34,7 @@ namespace FirstPokerTry.Data.Json
         public static List<PlayerObject> GetJsonPlayers()
         {
             SetJsonDirectory(@"../../../Data/Json/");
-            return ReadJsonFile("players.json");
+            return ReadJsonFile("./players.json");
         }
     }
 }
