@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using FirstPokerTry.Data.Json;
 using FirstPokerTry.Logics.CardFactory.Classes;
 using FirstPokerTry.Logics.Gameplay;
@@ -67,19 +67,29 @@ namespace FirstPokerTry.Logics.Gameplay
 
         public void BettingRound(GameDisplay gameDisplay)
         {
+            var player1Pot = new Player().Pot;
+            player1Pot = _player1Pot;
+            var player1Bet = new Player().Bet;
+            player1Bet = _player1Bet;
+
+            var player2Pot = new Player().Pot;
+            player2Pot = _player2Pot;
+            var player2Bet = new Player().Bet;
+            player2Bet = _player2Bet;
+
             gameDisplay.PrintPlayersTurn(1);
             gameDisplay.PrintBetMenu();
-            _player1Bet = gameDisplay.ReadBetInput();
-            _player1Pot -= _player1Bet;
-            _pot += _player1Bet;
-            gameDisplay.PrintPotStatus(_pot, _player1Pot, _player1Pot);
+            player1Bet = gameDisplay.ReadBetInput();
+            player1Pot -= player1Bet;
+            _pot += player1Bet;
+            gameDisplay.PrintPotStatus(_pot, player1Pot, player2Pot);
 
             gameDisplay.PrintPlayersTurn(2);
             gameDisplay.PrintBetMenu();
-            _player2Bet = gameDisplay.ReadBetInput();
-            _player2Pot -= _player2Bet;
-            _pot += _player2Bet;
-            gameDisplay.PrintPotStatus(_pot, _player1Pot, _player1Pot);
+            player2Bet = gameDisplay.ReadBetInput();
+            player2Pot -= player2Bet;
+            _pot += player2Bet;
+            gameDisplay.PrintPotStatus(_pot, player1Pot, player2Pot);
         }
     }
 }
