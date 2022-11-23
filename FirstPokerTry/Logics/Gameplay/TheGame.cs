@@ -37,13 +37,11 @@ namespace FirstPokerTry.Logics.Gameplay
             //var player1 = new Player();
             //var player2 = new Player();
 
-            //var player1Hand = player1.Hand;
-            //var player2Hand = player2.Hand;
+            var player1Hand = new Player().Hand;
+            var player2Hand = new Player().Hand;
 
-            var player1Hand = cardDealer.DealPlayer1Hand(cardDeck);
-            var player2Hand = cardDealer.DealPlayer2Hand(cardDeck);
-
-            //var player1HandString = CardObject.ToString(player1Hand); // IKKE SE 🙁
+            player1Hand = cardDealer.DealPlayer1Hand(cardDeck);
+            player2Hand = cardDealer.DealPlayer2Hand(cardDeck);
 
             gameDisplay.PrintDealtCards(player1Hand, player2Hand);
 
@@ -69,21 +67,20 @@ namespace FirstPokerTry.Logics.Gameplay
             switch (winner)
             {
                 case "player1":
-                    gameDisplay.Player1Pot += gameDisplay.Pot;
-                    Console.WriteLine($"Player 1 won {gameDisplay.Pot}");
+                    _player1Pot += _pot;
+                    gameDisplay.PrintWinner(1, _pot);
+                    //Console.WriteLine($"Player 1 won {_pot}");
                     break;
                 case "player2":
-                    gameDisplay.Player2Pot += gameDisplay.Pot;
-                    Console.WriteLine($"Player 2 won {gameDisplay.Pot}");
+                    _player2Pot += _pot;
+                    gameDisplay.PrintWinner(2, _pot);
+                    //Console.WriteLine($"Player 2 won {_pot}");
                     break;
                 default:
-                    Console.WriteLine("Tie");
+                    Console.WriteLine("No winner could be determined.");
                     break;
-
-
             }
         }
-
 
         public void BettingRound(GameDisplay gameDisplay)
         {
@@ -97,18 +94,27 @@ namespace FirstPokerTry.Logics.Gameplay
             var player2Bet = new Player().Bet;
             player2Bet = _player2Bet;
 
+            //dette må settes i en while loop
             gameDisplay.PrintPlayersTurn(1);
             gameDisplay.PrintBetMenu();
 
             player1Bet = gameDisplay.ReadBetInput();
+            player1Bet = gameDisplay.ValidateBetBasedOnMinimum(player1Bet, player2Bet, 1); //ny
+            //gameDisplay.ValidateBetBasedOnPot(player1Bet, 1); //ny
+            _player1Bet = player1Bet;
             player1Pot -= player1Bet;
+            _player1Pot = player1Pot;
             _pot += player1Bet;
             gameDisplay.PrintPotStatus(_pot, player1Pot, player2Pot);
 
             gameDisplay.PrintPlayersTurn(2);
             gameDisplay.PrintBetMenu();
             player2Bet = gameDisplay.ReadBetInput();
+            player2Bet = gameDisplay.ValidateBetBasedOnMinimum(player2Bet, player1Bet, 2); //ny
+            //gameDisplay.ValidateBetBasedOnPot(player2Bet, 2); //ny
+            _player2Bet = player2Bet;
             player2Pot -= player2Bet;
+            _player2Pot = player2Pot;
             _pot += player2Bet;
             gameDisplay.PrintPotStatus(_pot, player1Pot, player2Pot);
         }
