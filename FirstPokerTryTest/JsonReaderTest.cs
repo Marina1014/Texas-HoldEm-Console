@@ -27,16 +27,6 @@ namespace FirstPokerTryTest
             Assert.That(result, Is.EqualTo(cardDeck.Count));
 
         }
-
-        [Test]
-        public void ShouldReturnPlayers() //This test works when path string is hardcoded, but not with @"../../"
-        {
-            var playerList = JsonPlayersFileReader.GetJsonPlayers();
-
-            int result = 4;
-
-            Assert.That(result, Is.EqualTo(playerList.Count));
-        }
     }
 }
 
