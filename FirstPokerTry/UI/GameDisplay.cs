@@ -29,6 +29,7 @@ namespace FirstPokerTry.UI
             Player2Pot = player2Pot;
             Player2Bet = player2Bet;
         }
+
         public void PrintInitialGameMenu()
         {
             Console.WriteLine("Welcome to Texas Hold'em Poker!");
@@ -39,6 +40,7 @@ namespace FirstPokerTry.UI
             Console.ReadKey();
             Console.Clear();
         }
+
         public void PrintDealtCards(List<CardObject> player1Hand, List<CardObject> player2Hand)
         {
             Console.WriteLine("Player 1 has been dealt " + String.Join(", ", player1Hand));
@@ -47,6 +49,7 @@ namespace FirstPokerTry.UI
             Console.ReadKey();
             Console.Clear();
         }
+
         public void PrintCardsOnTable()
         {
             Console.WriteLine("The cards on the table are: ");
@@ -127,6 +130,14 @@ namespace FirstPokerTry.UI
                     return ReadBetInput();
             }
         }
+
+        public void PrintPlayerFolded(int playerNumber)
+        {
+            Console.WriteLine("Player " + playerNumber + " has folded.");
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
+        }
+  
         public void PrintPlayersBet(int playerNumber, int bet)
         {
             Console.WriteLine("Player " + playerNumber + " has bet " + bet);
@@ -134,12 +145,14 @@ namespace FirstPokerTry.UI
             Console.ReadKey();
             Console.Clear();
         }
-        public void PrintPotStatus()
+
+        public void PrintPotStatus(int _pot, int _player1Pot, int _player2Pot)
         {
             Console.WriteLine("Pot: " + Pot);
             Console.WriteLine("Player 1 Pot: " + Player1Pot);
             Console.WriteLine("Player 2 Pot: " + Player2Pot);
         }
+
         public void PrintWinner(int playerNumber)
         {
             Console.WriteLine("Player " + playerNumber + " has won the game!");
