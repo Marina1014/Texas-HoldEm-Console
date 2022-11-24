@@ -16,7 +16,6 @@ namespace FirstPokerTry.Logics.Gameplay
             _player2Bet = player2Bet;
         }
 
-
         private int _player1Bet { get; set; }
         private int _player1Pot { get; set; }
         private int _player2Bet { get; set; }
@@ -60,7 +59,7 @@ namespace FirstPokerTry.Logics.Gameplay
                 gameDisplay.PrintCardsOnTable();
                 // Third betting round
                 BettingRound(gameDisplay);
-
+               
                 // Determine this rounds winner
                 var winner = cardDealer.DetermineWinner();
 
@@ -69,25 +68,56 @@ namespace FirstPokerTry.Logics.Gameplay
                     case "player1":
                         _player1Pot += _pot;
                         gameDisplay.PrintWinner(1, _pot);
+                        _pot = 0;
                         break;
                     case "player2":
                         _player2Pot += _pot;
                         gameDisplay.PrintWinner(2, _pot);
+                        _pot = 0;
                         break;
                     default:
                         Console.WriteLine("No winner could be determined.");
                         break;
                 }
-                gameDisplay.cardsOnTable.Clear();
 
-                _pot = 0;
+                // Legg kortene tilbake i bunken
+                cardDealer.GetCardsBackInDeck(cardDeck);
+                player1Hand.Clear();
+                player2Hand.Clear();
+                gameDisplay.cardsOnTable.Clear();
+                /*player1Hand.RemoveRange(0, 7);
+                player2Hand.RemoveRange(0, 7);
+                gameDisplay.cardsOnTable.RemoveRange(0, 5);*/
+
+                // Del ut kort på nytt
+                player1Hand = cardDealer.DealPlayer1Hand(cardDeck);
+                player2Hand = cardDealer.DealPlayer2Hand(cardDeck);
+                gameDisplay.PrintDealtCards(player1Hand, player2Hand);
+
+                gameDisplay.cardsOnTable = cardDealer.DealFirstThreeCards(cardDeck);
+                gameDisplay.PrintCardsOnTable();
+
+                //_pot = 0;
                 _player1Bet = 0;
                 _player2Bet = 0;
-                
 
                 if (_player1Pot <= 0 || _player2Pot <= 0)
                     break;
             } while (_player1Pot > 0 && _player2Pot > 0);
+
+            // Når det ikke går å spille flere runder skal vinneren bli annonsert
+            if (_player1Pot > _player2Pot)
+            {
+                gameDisplay.PrintUltimateWinner(1, _pot);
+            }
+            else if (_player1Pot < _player2Pot)
+            {
+                gameDisplay.PrintUltimateWinner(2, _pot);
+            }
+            else
+            {
+                Console.WriteLine("Game Over");
+            }
 
         }
 
