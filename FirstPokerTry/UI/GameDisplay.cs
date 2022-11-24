@@ -15,11 +15,11 @@ namespace FirstPokerTry.UI
 
         public int Player1Pot { get; set; }
         public int Player1Bet { get; set; }
-        private string _player1Hand;
+        //private string _player1Hand;
 
         public int Player2Pot { get; set; }
         public int Player2Bet { get; set; }
-        private string _player2Hand;
+        //private string _player2Hand;
 
         public GameDisplay(int pot, int player1Pot, int player1Bet, int player2Pot, int player2Bet)
         {
@@ -40,7 +40,6 @@ namespace FirstPokerTry.UI
             Console.ReadKey();
             Console.Clear();
         }
-
 
         public void PrintPlayerHand(int playerNumber, List<CardObject> playerHand)
         {
@@ -258,6 +257,12 @@ namespace FirstPokerTry.UI
             Console.WriteLine("Press any key to start a new round.");
             Console.ReadKey();
             Console.Clear();
+        }
+
+        public void PrintUltimateWinner(int playerNumer, int pot)
+        {
+            Console.WriteLine("Player " + playerNumer + " Has won Texas Hold'em Poker!");
+            Console.WriteLine("Congratulations on your win of " + pot);
         }
     }
 }
