@@ -227,8 +227,6 @@ namespace FirstPokerTry.UI
             }
         }
 
-        
-
         public void PrintPlayerFolded(int playerNumber)
         {
             Console.WriteLine("Player " + playerNumber + " has folded.");
@@ -254,9 +252,10 @@ namespace FirstPokerTry.UI
 
         public void PrintWinner(int playerNumber, int pot)
         {
-            Console.WriteLine("Player " + playerNumber + " has won the game!");
+            Console.WriteLine("");
+            Console.WriteLine("Player " + playerNumber + " has won the round!");
             Console.WriteLine("The whole pot of " + pot + " is yours!");
-            Console.WriteLine("Press any key to close.");
+            Console.WriteLine("Press any key to start a new round.");
             Console.ReadKey();
             Console.Clear();
         }
