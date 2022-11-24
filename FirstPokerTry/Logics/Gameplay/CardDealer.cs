@@ -106,7 +106,7 @@ namespace FirstPokerTry.Logics.Gameplay
                 return "player1";
 
             if (player1Score < player2Score)
-                return "player1";
+                return "player2";
 
             return "tie";
         }

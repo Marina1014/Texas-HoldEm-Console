@@ -85,9 +85,6 @@ namespace FirstPokerTry.Logics.Gameplay
                 player1Hand.Clear();
                 player2Hand.Clear();
                 gameDisplay.cardsOnTable.Clear();
-                /*player1Hand.RemoveRange(0, 7);
-                player2Hand.RemoveRange(0, 7);
-                gameDisplay.cardsOnTable.RemoveRange(0, 5);*/
 
                 // Del ut kort på nytt
                 player1Hand = cardDealer.DealPlayer1Hand(cardDeck);
