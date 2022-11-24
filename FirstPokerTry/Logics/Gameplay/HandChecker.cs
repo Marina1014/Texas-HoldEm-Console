@@ -57,40 +57,13 @@ namespace FirstPokerTry.Logics.Gameplay
             return _score;
         }
 
-        /*
-        public List<CardObject> giveFlushList(List<CardObject> hand)
-        {
-            var flush = hand.GroupBy(c => c.Suit).Where(g => g.Count() == 5);
-            //var suit = flush.First().Key;
-            
-            List<CardObject> suit = new List<CardObject>();
-            
-
-            return suit;
-        }
-
-        private static string ToString(SuitEnum suitEnum)
-        {
-            return suitEnum.ToString();
-        }*/
-
         public int checkIfStraightFlushExists(IEnumerable<CardObject> hand)
         {
             var handListHearts = hand.Where(o => o.Suit == SuitEnum.Hearts);
             var handListClubs = hand.Where(o => o.Suit == SuitEnum.Clubs);
             var handListSpades = hand.Where(o => o.Suit == SuitEnum.Spades);
             var handListDiamonds = hand.Where(o => o.Suit == SuitEnum.Diamonds);
-            /*
-            if (checkIfFlushExists(handList))
-            {
-                //handList = (List<CardObject>)handList.Where(o => o.Suit == suitEnum(handList));
-                //IEnumerable<CardObject> enumerable = handList.Where(o => ToString((SuitEnum)(char)o.Suit) == ToString((SuitEnum)(char)suitEnum(handList)));
-                //handList = enumerable as List<CardObject>;
-
-                //IEnumerable<CardObject> shitList = handList.Where(o => ToString((SuitEnum)(char)o.Suit) == ToString((SuitEnum)(char)suitEnum(handList)));
-                //handList = shitList as List<CardObject>;
-
-            }*/
+            
             if (handListHearts.Count() > 4) 
             {
                 if (checkStraightForFlush(handListHearts))
@@ -264,18 +237,6 @@ namespace FirstPokerTry.Logics.Gameplay
             return _score;
                        
         }
-        /*
-        //Burde denne droppes her? 
-        public bool checkIfHighestValue (List<CardObject> hand)
-        {
-            if (checkIfPairExists(hand) || checkIfTwoPairsExists(hand) || checkifThreeOfAKindExists(hand) || checkIfStraighExists(hand) || checkIfFlushExists(hand) || checkifFourOfAKindExists(hand))
-            {
-                return false;
-            }
-
-            return true;
-        }*/
-
 
         public int CalculateHandScore(List<CardObject> cards)
         {
@@ -289,42 +250,6 @@ namespace FirstPokerTry.Logics.Gameplay
                    + checkIfStraightFlushExists(cards)
                    + checkIfRoyalFlushExits(cards);
         }
-
-
-
-        /*
-
-        public int[] getPoints()
-        {   
-            var cardDealer = new CardDealer();           
-            int scorePlayer1 = 0;
-            int scorePlayer2 = 0;
-
-            scorePlayer1 = checkIfPairExists(cardDealer.getCardsPlayer1())
-                + checkIfTwoPairsExists(cardDealer.getCardsPlayer1())
-                + checkifThreeOfAKindExists(cardDealer.getCardsPlayer1())
-                + checkIfStraighExists(cardDealer.getCardsPlayer1())
-                + checkIfFlushExists(cardDealer.getCardsPlayer1())
-                + checkIfFullHouseExists(cardDealer.getCardsPlayer1())
-                + checkifFourOfAKindExists(cardDealer.getCardsPlayer1())
-                + checkIfStraightFlushExists(cardDealer.getCardsPlayer1())
-                + checkIfRoyalFlushExits(cardDealer.getCardsPlayer1());
-                
-            scorePlayer2 = checkIfPairExists(cardDealer.getCardsPlayer2())
-                + checkIfTwoPairsExists(cardDealer.getCardsPlayer2())
-                + checkifThreeOfAKindExists(cardDealer.getCardsPlayer2())
-                + checkIfStraighExists(cardDealer.getCardsPlayer2())
-                + checkIfFlushExists(cardDealer.getCardsPlayer2())
-                + checkIfFullHouseExists(cardDealer.getCardsPlayer2())
-                + checkifFourOfAKindExists(cardDealer.getCardsPlayer2())
-                + checkIfStraightFlushExists(cardDealer.getCardsPlayer2())
-                + checkIfRoyalFlushExits(cardDealer.getCardsPlayer2());
-
-            int[] scoreArray = new int[] {scorePlayer1, scorePlayer2};
-
-            return scoreArray;
-        }
-        */
 
     }
 }

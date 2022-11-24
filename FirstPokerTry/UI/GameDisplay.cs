@@ -90,7 +90,7 @@ namespace FirstPokerTry.UI
 
             var input = Console.ReadKey();
 
-            while (input.Key != ConsoleKey.B && input.Key != ConsoleKey.F)
+            while (input.Key != ConsoleKey.B && input.Key != ConsoleKey.F) // dette er bugen vår
             {
                 Console.WriteLine("Please enter a valid input.");
 
