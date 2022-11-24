@@ -78,10 +78,12 @@ namespace FirstPokerTry.Logics.Gameplay
                         Console.WriteLine("No winner could be determined.");
                         break;
                 }
+                gameDisplay.cardsOnTable.Clear();
 
                 _pot = 0;
                 _player1Bet = 0;
                 _player2Bet = 0;
+                
 
                 if (_player1Pot <= 0 || _player2Pot <= 0)
                     break;
