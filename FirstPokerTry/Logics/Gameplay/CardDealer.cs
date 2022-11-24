@@ -111,6 +111,18 @@ namespace FirstPokerTry.Logics.Gameplay
             return "tie";
         }
 
+        public List<CardObject> GetCardsBackInDeck(List<CardObject> deck)
+        {
+            deck.Add(cardsPlayer1[0]);
+            deck.Add(cardsPlayer1[1]);
+            deck.Add(cardsPlayer2[0]);
+            deck.Add(cardsPlayer2[1]);
+
+            deck.AddRange(cardsOnTable);
+
+            return deck;
+        }
+
         public List<CardObject> getCardsPlayer1()
         {         
             return cardsPlayer1;
