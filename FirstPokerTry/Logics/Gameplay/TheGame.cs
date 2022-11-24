@@ -68,10 +68,12 @@ namespace FirstPokerTry.Logics.Gameplay
                     case "player1":
                         _player1Pot += _pot;
                         gameDisplay.PrintWinner(1, _pot);
+                        _pot = 0;
                         break;
                     case "player2":
                         _player2Pot += _pot;
                         gameDisplay.PrintWinner(2, _pot);
+                        _pot = 0;
                         break;
                     default:
                         Console.WriteLine("No winner could be determined.");
@@ -79,17 +81,13 @@ namespace FirstPokerTry.Logics.Gameplay
                 }
 
                 // Legg kortene tilbake i bunken
-                cardDealer.GetCardsBackInDeck(player1Hand);
-                player1Hand.RemoveRange(0, 7);
-                //player1Hand.Clear();
-
-                cardDealer.GetCardsBackInDeck(player2Hand);
+                cardDealer.GetCardsBackInDeck(cardDeck);
+                player1Hand.Clear();
+                player2Hand.Clear();
+                gameDisplay.cardsOnTable.Clear();
+                /*player1Hand.RemoveRange(0, 7);
                 player2Hand.RemoveRange(0, 7);
-                //player2Hand.Clear();
-
-                cardDealer.GetCardsBackInDeck(gameDisplay.cardsOnTable);
-                gameDisplay.cardsOnTable.RemoveRange(0, 5);
-                //gameDisplay.cardsOnTable.Clear();
+                gameDisplay.cardsOnTable.RemoveRange(0, 5);*/
 
                 // Del ut kort på nytt
                 player1Hand = cardDealer.DealPlayer1Hand(cardDeck);
@@ -99,7 +97,7 @@ namespace FirstPokerTry.Logics.Gameplay
                 gameDisplay.cardsOnTable = cardDealer.DealFirstThreeCards(cardDeck);
                 gameDisplay.PrintCardsOnTable();
 
-                _pot = 0;
+                //_pot = 0;
                 _player1Bet = 0;
                 _player2Bet = 0;
 
