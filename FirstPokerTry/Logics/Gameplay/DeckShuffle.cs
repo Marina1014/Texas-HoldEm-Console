@@ -21,7 +21,6 @@ namespace FirstPokerTry.Logics.Gameplay
             return cards;
         }
 
-
         public static void Shuffle(List<CardObject> cards)
         {
             int n = cards.Count;

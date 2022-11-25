@@ -9,7 +9,7 @@ namespace FirstPokerTry
     {
         public static void Main(String[] args)
         {
-            var game = new TheGame(0, 1000, 0, 1000, 0);
+            var game = new TheGame(0, 800, 0, 800, 0);
             game.PlayGame();
 
         }

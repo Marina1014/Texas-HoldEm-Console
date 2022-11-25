@@ -1,8 +1,6 @@
 ﻿using System;
 using DryIoc.ImTools;
 using FirstPokerTry.Logics.Objects;
-//using FirstPokerTry.Logics.CardFactory.Classes;
-//using FirstPokerTry.Logics.Gameplay;
 
 namespace FirstPokerTry.UI
 {
@@ -15,11 +13,9 @@ namespace FirstPokerTry.UI
 
         public int Player1Pot { get; set; }
         public int Player1Bet { get; set; }
-        //private string _player1Hand;
 
         public int Player2Pot { get; set; }
         public int Player2Bet { get; set; }
-        //private string _player2Hand;
 
         public GameDisplay(int pot, int player1Pot, int player1Bet, int player2Pot, int player2Bet)
         {
@@ -55,6 +51,7 @@ namespace FirstPokerTry.UI
         
         public void PrintDealtCards(List<CardObject> player1Hand, List<CardObject> player2Hand)
         {
+            Console.WriteLine("");
             Console.WriteLine("Dealing cards, look away player 2!");
             Console.WriteLine("Press any key when you're ready.");
             Console.ReadKey();
@@ -78,23 +75,15 @@ namespace FirstPokerTry.UI
             }
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
-            Console.Clear();
         }
 
         public bool PrintPlayersTurn(int playerNumber)
         {
-            bool bet;
             Console.WriteLine("");
             Console.WriteLine("Player " + playerNumber + "'s turn.");
-            Console.WriteLine("Would you like to bet (b) or fold (f)?");
+            Console.WriteLine("Press B to bet, press any key to fold.");
 
             var input = Console.ReadKey();
-
-            while (input.Key != ConsoleKey.B && input.Key != ConsoleKey.F) // dette er bugen vår
-            {
-                Console.WriteLine("Please enter a valid input.");
-
-            }
 
             while (true)
             {
@@ -102,7 +91,7 @@ namespace FirstPokerTry.UI
                 {
                     return true;
                 }
-                else if (input.Key == ConsoleKey.F)
+                else
                 {
                     return false;
                 }
@@ -118,7 +107,7 @@ namespace FirstPokerTry.UI
         }
 
         public int ReadBetInput()
-        {   //kan printbetmenu kalles på her?
+        {
             var input = Console.ReadKey();
 
             switch (input.Key)
@@ -159,33 +148,29 @@ namespace FirstPokerTry.UI
                     Console.WriteLine("");
                     Console.WriteLine("You don't have enough money to bet that much.");
                     Console.WriteLine("");
-                    PrintBetMenu();
-                    return ValidateBetBasedOnPot(ReadBetInput(), playerPot, playerNumber);
+                    return 0;
                 }
                 else
                 {
                     return bet;
                 }
             }
-            else if (playerNumber == 2)
+
+            if (playerNumber == 2)
             {
                 if (bet > playerPot)
                 {
                     Console.WriteLine("");
                     Console.WriteLine("You don't have enough money to bet that much.");
                     Console.WriteLine("");
-                    PrintBetMenu();
-                    return ValidateBetBasedOnPot(ReadBetInput(), playerPot, playerNumber);
+                    return 0;
                 }
                 else
                 {
                     return bet;
                 }
             }
-            else
-            {
-                return 0;
-            }
+            else return 0;
         }
 
         public int ValidateBetBasedOnMinimum(int bet, int otherBet, int playerNumber)
@@ -228,6 +213,7 @@ namespace FirstPokerTry.UI
 
         public void PrintPlayerFolded(int playerNumber)
         {
+            Console.WriteLine("");
             Console.WriteLine("Player " + playerNumber + " has folded.");
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
@@ -235,10 +221,10 @@ namespace FirstPokerTry.UI
   
         public void PrintPlayersBet(int playerNumber, int bet)
         {
+            Console.WriteLine("");
             Console.WriteLine("Player " + playerNumber + " has bet " + bet);
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
-            Console.Clear();
         }
 
         public void PrintPotStatus(int pot, int player1Pot, int player2Pot)
@@ -261,8 +247,11 @@ namespace FirstPokerTry.UI
 
         public void PrintUltimateWinner(int playerNumer, int pot)
         {
+            Console.WriteLine("");
             Console.WriteLine("Player " + playerNumer + " Has won Texas Hold'em Poker!");
             Console.WriteLine("Congratulations on your win of " + pot);
+            Console.WriteLine("Press any key to exit game");
+            Console.ReadKey();
         }
     }
 }

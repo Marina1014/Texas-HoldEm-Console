@@ -15,7 +15,6 @@
     <None Remove="Newtonsoft.Json" />
     <None Remove="NUnit" />
     <None Remove="NUnit3TestAdapter" />
-    <None Remove="Logics\CardFactory\Contexts\" />
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
@@ -31,7 +30,6 @@
     <Folder Include="Data\" />
     <Folder Include="UI\" />
     <Folder Include="Logics\Objects\" />
-    <Folder Include="Logics\CardFactory\Contexts\" />
     <Folder Include="Data\Json\" />
     <Folder Include="Logics\PlayerFlyWeight\" />
     <Folder Include="Logics\PlayerFlyWeight\Abstract\" />
